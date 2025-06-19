@@ -4,21 +4,32 @@
   left: 0;
   width: 250px;
   height: 100vh;
-  background: #fff;
+  background: white;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
   z-index: 2001;
   padding: 1rem;
-  transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
 }
 
-.sidebar.show {
+/* Animate in/out */
+.slide-in {
   transform: translateX(0);
 }
 
+.slide-out {
+  transform: translateX(-100%);
+}
+
+/* Backdrop */
 .sidebar-backdrop {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

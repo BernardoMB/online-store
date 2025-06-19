@@ -10,7 +10,6 @@ const App: React.FC = () => {
   const [isHeaderExpanded, setIsHeaderExpanded] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
-
   return (
     <div className="app-container">
       <Header
@@ -28,11 +27,9 @@ const App: React.FC = () => {
       )}
 
       <div className="main-layout">
+        <Sidebar isVisible={isSidebarOpen} />
         {isSidebarOpen && (
-          <>
-            <Sidebar isVisible={true} />
-            <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />
-          </>
+          <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />
         )}
         <Content />
       </div>

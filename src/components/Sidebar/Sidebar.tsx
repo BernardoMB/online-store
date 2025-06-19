@@ -1,11 +1,12 @@
 import "./Sidebar.css";
+
 type SidebarProps = {
   isVisible: boolean;
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ isVisible }) => {
   return (
-    <aside className={`sidebar ${isVisible ? "show" : "hide"}`}>
+    <aside className={`sidebar ${isVisible ? "slide-in" : "slide-out"}`}>
       <nav>
         <ul>
           <li><a href="#">Home</a></li>
