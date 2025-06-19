@@ -8,7 +8,7 @@ import "./index.css";
 
 const App: React.FC = () => {
   const [isHeaderExpanded, setIsHeaderExpanded] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="app-container">
