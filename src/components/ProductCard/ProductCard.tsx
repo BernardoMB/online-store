@@ -6,6 +6,7 @@ import "./ProductCard.css";
 type ProductCardProps = {
     productId: string;
     productName: string;
+    description: string;
     price: number;
     imageUrl?: string;
 };
@@ -13,6 +14,7 @@ type ProductCardProps = {
 const ProductCard: React.FC<ProductCardProps> = ({
     productId,
     productName,
+    description,
     price,
     imageUrl,
 }) => {

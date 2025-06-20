@@ -1,0 +1,1 @@
+export default () => <h2>ℹ️ About Us</h2>;
