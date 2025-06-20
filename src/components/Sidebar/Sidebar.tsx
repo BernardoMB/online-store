@@ -1,3 +1,5 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
 type SidebarProps = {
@@ -5,12 +7,21 @@ type SidebarProps = {
 };
 
 const Sidebar: React.FC<SidebarProps> = ({ isVisible }) => {
+  const navigate = useNavigate();
+
   return (
     <aside className={`sidebar ${isVisible ? "slide-in" : "slide-out"}`}>
       <nav>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
+          <li><button onClick={() => navigate("/home")}>
+            Home
+          </button></li>
+          <li><button onClick={() => navigate("/products")}>
+            Shop Products
+          </button></li>
+          <li><button onClick={() => navigate("/about")}>
+            About
+          </button></li>
           <li><a href="#">Cart</a></li>
           <li><a href="#">Account</a></li>
         </ul>
