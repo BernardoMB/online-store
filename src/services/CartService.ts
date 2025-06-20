@@ -26,7 +26,6 @@ class CartService {
     } else {
       alert('Error: the item is not in the cart')
     }
-    console.log('Resulting quantity', existing?.quantity);
     if (existing?.quantity == 0) {
       this.items.delete(productId);
     }
