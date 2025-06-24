@@ -1,9 +1,5 @@
-type CartItem = {
-  productId: string;
-  price: number;
-  quantity: number;
-  productName: string;
-};
+import type { CartItem } from "../model/CartModel";
+import { saveCartToIndexedDB } from "./DatabaseService";
 
 class CartService {
   private items: Map<string, CartItem> = new Map();
@@ -16,6 +12,7 @@ class CartService {
     } else {
       this.items.set(item.productId, { ...item });
     }
+    saveCartToIndexedDB(this.getItems());
   }
 
   // Remove item once by productId
@@ -29,11 +26,13 @@ class CartService {
     if (existing?.quantity == 0) {
       this.items.delete(productId);
     }
+    saveCartToIndexedDB(this.getItems());
   }
 
   // Remove all items by productId
   removeItemAll(productId: string): void {
     this.items.delete(productId);
+    saveCartToIndexedDB(this.getItems());
   }
 
   // Get total price
@@ -62,7 +61,6 @@ class CartService {
   getQuantity(productId: string): number {
     return this.items.get(productId)?.quantity || 0;
   }
-
 }
 
 export const cartService = new CartService();

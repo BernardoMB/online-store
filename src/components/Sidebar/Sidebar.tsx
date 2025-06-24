@@ -22,6 +22,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible }) => {
           <li><button onClick={() => navigate("/about")}>
             About
           </button></li>
+          <li><button onClick={() => navigate("/checkout")}>
+            Checkout
+          </button></li>
           <li><a href="#">Cart</a></li>
           <li><a href="#">Account</a></li>
         </ul>

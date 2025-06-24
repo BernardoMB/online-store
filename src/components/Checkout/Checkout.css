@@ -1,0 +1,8 @@
+.checkout-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.checkout-page li {
+  margin: 0.5rem 0;
+}

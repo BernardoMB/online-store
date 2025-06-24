@@ -24,6 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         cartService.addItem({
             productId,
             productName,
+            description,
             price,
             quantity: 1,
         });

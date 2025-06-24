@@ -7,9 +7,10 @@ const Content: React.FC = () => {
       <p>Here’s where your products and store content will go.</p>
 
       <ProductCard
-        productId="abc123"
+        productId="4"
         productName="Bluetooth Speaker"
         price={49.99}
+        description="Some description"
         imageUrl="/images/speaker.jpg"
       />
 

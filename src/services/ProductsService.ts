@@ -1,10 +1,4 @@
-export type Product = {
-  productId: string;
-  productName: string;
-  description: string;
-  price: number;
-  imageUrl?: string;
-};
+import type { Product } from "../model/ProductModel";
 
 const products: Product[] = [
   {
