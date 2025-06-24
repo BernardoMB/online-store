@@ -35,6 +35,11 @@ class CartService {
     saveCartToIndexedDB(this.getItems());
   }
 
+  empty(): void {
+    this.items.clear();
+    saveCartToIndexedDB(this.getItems());
+  }
+
   // Get total price
   getTotalPrice(): number {
     let total = 0;
