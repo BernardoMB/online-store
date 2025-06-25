@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { cartService } from "../../services/CartService";
-
+import { Link } from "react-router-dom";
 import "./ProductCard.css";
 
 type ProductCardProps = {
@@ -27,6 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             description,
             price,
             quantity: 1,
+            imageUrl
         });
         setQuantity(cartService.getQuantity(productId));
     };
@@ -42,15 +43,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
     }
 
     return (
-        <div className="product-card">
-            {imageUrl && <img src={imageUrl} alt={productName} />}
-            <h3>{productName}</h3>
-            <p>${price.toFixed(2)}</p>
-            {quantity > 0 && <p>In Cart: {quantity}</p>}
-            <button onClick={handleAddToCart}>Add to Cart</button>
-            <button onClick={handleRemoveFromCartOnce}>Remove from Cart</button>
-            <button onClick={handleRemoveAllFromCart}>Remove all from Cart</button>
-        </div>
+        <Link to={`/product/${productId}`} style={{ textDecoration: "none", color: "inherit" }}>
+            <div className="product-card">
+                {imageUrl && <img src={imageUrl} alt={productName} />}
+                <h3>{productName}</h3>
+                <p>${price.toFixed(2)}</p>
+                {quantity > 0 && <p>In Cart: {quantity}</p>}
+                <button onClick={handleAddToCart}>Add to Cart</button>
+                <button onClick={handleRemoveFromCartOnce}>Remove from Cart</button>
+                <button onClick={handleRemoveAllFromCart}>Remove all from Cart</button>
+            </div>
+        </Link>
     );
 };
 

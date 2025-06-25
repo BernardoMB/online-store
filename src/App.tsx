@@ -9,6 +9,7 @@ import { loadCartFromIndexedDB } from "./services/DatabaseService";
 import { cartService } from "./services/CartService";
 import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
+import ProductPage from "./components/Product/Product";
 
 const App: React.FC = () => {
   const hasInitialized = useRef(false);
@@ -33,6 +34,7 @@ const App: React.FC = () => {
         <Route path="about" element={<About />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="success" element={<Success />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
       </Route>
     </Routes>
   </Router>;

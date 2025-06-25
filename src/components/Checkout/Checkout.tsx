@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { cartService } from "../../services/CartService";
 import "./Checkout.css";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
+import ProductCard from "../ProductCard/ProductCard";
 
 const Checkout: React.FC = () => {
   const [items, setItems] = useState(cartService.getItems());
@@ -49,13 +50,23 @@ const Checkout: React.FC = () => {
                 </span>
               </li>
             ))}
+            {items.map((product) => (
+              <ProductCard
+                key={product.productId}
+                productId={product.productId}
+                productName={product.productName}
+                description={product.description}
+                price={product.price}
+                imageUrl={product.imageUrl}
+              />
+            ))}
           </ul>
 
           <h3>Total: ${total.toFixed(2)}</h3>
+          <CheckoutButton />
         </>
       )}
 
-      <CheckoutButton />
     </div>
   );
 };

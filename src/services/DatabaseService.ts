@@ -15,7 +15,6 @@ export async function openCartDB(): Promise<IDBDatabase> {
 
     request.onsuccess = function (event) {
       const db = (event.target as IDBOpenDBRequest).result;
-      console.log("Available stores:", db.objectStoreNames);
       resolve(db);
     };
 

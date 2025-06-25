@@ -1,4 +1,5 @@
-import { useCartTotals } from "../hooks/useCart";
+import { useCartTotals } from "../../hooks/useCart";
+import './Header.css';
 
 type HeaderProps = {
   expanded: boolean;

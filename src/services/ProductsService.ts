@@ -28,4 +28,8 @@ export const ProductsService = {
   getAllProducts: (): Product[] => {
     return products;
   },
+  getProductById: (productId: string): Product | undefined => {
+    const product: Product | undefined = products.find(product => product.productId == productId);
+    return product;
+  }
 };

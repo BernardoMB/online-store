@@ -13,20 +13,26 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible }) => {
     <aside className={`sidebar ${isVisible ? "slide-in" : "slide-out"}`}>
       <nav>
         <ul>
-          <li><button onClick={() => navigate("/home")}>
-            Home
-          </button></li>
-          <li><button onClick={() => navigate("/products")}>
-            Shop Products
-          </button></li>
-          <li><button onClick={() => navigate("/about")}>
-            About
-          </button></li>
-          <li><button onClick={() => navigate("/checkout")}>
-            Checkout
-          </button></li>
-          <li><a href="#">Cart</a></li>
-          <li><a href="#">Account</a></li>
+          <li>
+            <button onClick={() => navigate("/home")}>
+              Home
+            </button>
+          </li>
+          <li>
+            <button onClick={() => navigate("/products")}>
+              Shop Products
+            </button>
+          </li>
+          <li>
+            <button onClick={() => navigate("/about")}>
+              About
+            </button>
+          </li>
+          <li>
+            <button onClick={() => navigate("/checkout")}>
+              Checkout
+            </button>
+            </li>
         </ul>
       </nav>
     </aside>
