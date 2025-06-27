@@ -6,3 +6,11 @@ export type CartItem = {
   quantity: number;
   imageUrl?: string;
 };
+
+export type Shipping = {
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  zip: string;
+};

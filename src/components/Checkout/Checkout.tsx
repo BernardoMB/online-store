@@ -7,6 +7,14 @@ import ProductCard from "../ProductCard/ProductCard";
 const Checkout: React.FC = () => {
   const [items, setItems] = useState(cartService.getItems());
   const [total, setTotal] = useState(cartService.getTotalPrice());
+  const [shipping, setShipping] = useState({
+    name: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: ''
+  });
+  const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
     const refresh = () => {
@@ -33,6 +41,15 @@ const Checkout: React.FC = () => {
     };
   }, []);
 
+  const updateShipping = (field: string, value: string) => {
+    const newShipping = { ...shipping, [field]: value };
+    setShipping(newShipping);
+
+    // Naive validation
+    const isValid = Object.values(newShipping).every((v) => v.trim() !== "");
+    setFormValid(isValid);
+  };
+  
   return (
     <div className="checkout-page">
       <h2>🧾 Checkout</h2>
@@ -62,8 +79,21 @@ const Checkout: React.FC = () => {
             ))}
           </ul>
 
+          <form className="shipping-form">
+            <input type="text" placeholder="Full Name" value={shipping.name}
+              onChange={(e) => updateShipping("name", e.target.value)} required />
+            <input type="text" placeholder="Street Address" value={shipping.address}
+              onChange={(e) => updateShipping("address", e.target.value)} required />
+            <input type="text" placeholder="City" value={shipping.city}
+              onChange={(e) => updateShipping("city", e.target.value)} required />
+            <input type="text" placeholder="State" value={shipping.state}
+              onChange={(e) => updateShipping("state", e.target.value)} required />
+            <input type="text" placeholder="ZIP Code" value={shipping.zip}
+              onChange={(e) => updateShipping("zip", e.target.value)} required />
+          </form>
+
           <h3>Total: ${total.toFixed(2)}</h3>
-          <CheckoutButton />
+          <CheckoutButton disabled={!formValid} shipping={shipping} />
         </>
       )}
 
