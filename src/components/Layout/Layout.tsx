@@ -26,7 +26,7 @@ const Layout: React.FC = () => {
       )}
 
       <div className="main-layout">
-        <Sidebar isVisible={isSidebarOpen} />
+        <Sidebar isVisible={isSidebarOpen} setIsVisible={setIsSidebarOpen} />
         {isSidebarOpen && (
           <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />
         )}
