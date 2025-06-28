@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Sidebar/Sidebar";
-import Footer from "../Footer";
+import Footer from "../Footer/Footer";
 import "./Layout.css";
 import Header from "../Header/Header";
 

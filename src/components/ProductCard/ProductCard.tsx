@@ -29,17 +29,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
             quantity: 1,
             imageUrl
         });
-        setQuantity(cartService.getQuantity(productId));
+        const newQuantity = cartService.getQuantity(productId);
+        setQuantity(newQuantity);
     };
     
     const handleRemoveAllFromCart = () => {
         cartService.removeItemAll(productId);
-        setQuantity(cartService.getQuantity(productId));
+        const newQuantity = cartService.getQuantity(productId);
+        setQuantity(newQuantity);
     };
 
     const handleRemoveFromCartOnce = () => {
         cartService.removeItem(productId);
-        setQuantity(cartService.getQuantity(productId));
+        const newQuantity = cartService.getQuantity(productId);
+        setQuantity(newQuantity);
     }
 
     return (
@@ -49,9 +52,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 <h3>{productName}</h3>
                 <p>${price.toFixed(2)}</p>
                 {quantity > 0 && <p>In Cart: {quantity}</p>}
-                <button onClick={handleAddToCart}>Add to Cart</button>
-                <button onClick={handleRemoveFromCartOnce}>Remove from Cart</button>
-                <button onClick={handleRemoveAllFromCart}>Remove all from Cart</button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleAddToCart(); }}>
+                    Add to Cart
+                </button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleRemoveAllFromCart(); }}>
+                    Remove all from Cart
+                </button>
+                <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleRemoveFromCartOnce(); }}>
+                    Remove from Cart
+                </button>
             </div>
         </Link>
     );

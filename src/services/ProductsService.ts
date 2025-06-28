@@ -22,6 +22,13 @@ const products: Product[] = [
     price: 149.99,
     imageUrl: "/images/headphones.jpg",
   },
+  {
+    productId: "4",
+    productName: "Bluetooth Speaker",
+    description: "Best quiality sound and portability.",
+    price: 149.99,
+    imageUrl: "/images/speaker.jpg"
+  }
 ];
 
 export const ProductsService = {

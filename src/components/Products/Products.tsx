@@ -1,8 +1,8 @@
 import React from "react";
 import { ProductsService } from "../../services/ProductsService";
-import type { Product }  from "../../services/ProductsService";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Products.css"
+import type { Product } from "../../model/ProductModel";
 
 const Products: React.FC = () => {
   const products: Product[] = ProductsService.getAllProducts();

@@ -1,6 +1,8 @@
+import './Footer.css'
+
 const Footer: React.FC = () => {
   return (
-    <footer style={{ height: "50px", background: "#444", color: "white", textAlign: "center", padding: "1rem" }}>
+    <footer className="site-footer">
       © {new Date().getFullYear()} Your Store Name
     </footer>
   );

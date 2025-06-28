@@ -25,6 +25,7 @@ const Checkout: React.FC = () => {
     // Wrap cart mutators to trigger re-renders if needed
     const originalAdd = cartService.addItem.bind(cartService);
     const originalRemove = cartService.removeItem.bind(cartService);
+    const originalRemoveAll = cartService.removeItemAll.bind(cartService);
 
     cartService.addItem = (...args) => {
       originalAdd(...args);
@@ -34,6 +35,10 @@ const Checkout: React.FC = () => {
       originalRemove(...args);
       refresh();
     };
+    cartService.removeItemAll = (...args) => {
+      originalRemoveAll(...args);
+      refresh();
+    }
 
     return () => {
       cartService.addItem = originalAdd;
