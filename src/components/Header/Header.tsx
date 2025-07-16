@@ -24,6 +24,7 @@ const Header: React.FC<HeaderProps> = ({
       <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
         {expanded ? "Collapse Header" : "Expand Header"}
       </button>
+      <div className="spacer"></div>
       <div>
         <strong>🛒 Cart:</strong> {count} item{count !== 1 && "s"} — ${price.toFixed(2)}
       </div>
