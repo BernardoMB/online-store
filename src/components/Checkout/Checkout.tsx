@@ -3,6 +3,7 @@ import { cartService } from "../../services/CartService";
 import "./Checkout.css";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
 import ProductCard from "../ProductCard/ProductCard";
+import type { CartItem } from "../../model/CartModel";
 
 const Checkout: React.FC = () => {
   const [items, setItems] = useState(cartService.getItems());
@@ -72,14 +73,14 @@ const Checkout: React.FC = () => {
                 </span>
               </li>
             ))}
-            {items.map((product) => (
+            {items.map((product: CartItem) => (
               <ProductCard
                 key={product.productId}
                 productId={product.productId}
                 productName={product.productName}
                 description={product.description}
                 price={product.price}
-                imageUrl={product.imageUrl}
+                images={product.imageUrl ? [product.imageUrl] : []}
               />
             ))}
           </ul>
