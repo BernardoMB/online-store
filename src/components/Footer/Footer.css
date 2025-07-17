@@ -5,3 +5,11 @@
     text-align: center;
     padding: 1rem;
 }
+
+.link-button {
+    cursor: pointer;
+}
+
+.link-button:hover {
+    text-decoration: underline;
+}

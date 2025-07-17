@@ -19,11 +19,12 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="site-header">
       <button onClick={toggleSidebar}>
-        {isSidebarOpen ? "Hide Sidebar" : "Show Sidebar"}
+        {isSidebarOpen ? <div>&#10006;</div> : "☰"}
       </button>
-      <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
+      &emsp; Hue & Hoot
+      {/* <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
         {expanded ? "Collapse Header" : "Expand Header"}
-      </button>
+      </button> */}
       <div className="spacer"></div>
       <div>
         <strong>🛒 Cart:</strong> {count} item{count !== 1 && "s"} — ${price.toFixed(2)}
