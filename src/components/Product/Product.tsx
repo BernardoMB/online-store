@@ -20,7 +20,7 @@ const ProductPage: React.FC = () => {
             description: product.description,
             price: product.price,
             quantity: 1,
-            imageUrl: product.imageUrl
+            imageUrl: product.images[0]
         });
         setQuantity(cartService.getQuantity(productId!));
     };
@@ -39,7 +39,8 @@ const ProductPage: React.FC = () => {
     return (
         <div style={{ padding: "2rem" }}>
             <h2>{product.productName}</h2>
-            {product.imageUrl && <img src={product.imageUrl} alt={product.productName} width="300" />}
+            {/* TODO: Show all images instead of just showing the first element of the array of images */}
+            {product.images[0] && <img src={product.images[0]} alt={product.productName} width="300" />}
             <p style={{ marginTop: "1rem" }}>{product.description}</p>
             <p style={{ fontWeight: "bold" }}>${product.price.toFixed(2)}</p>
             {quantity > 0 && <p>In Cart: {quantity}</p>}

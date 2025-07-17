@@ -8,7 +8,7 @@ type ProductCardProps = {
     productName: string;
     description: string;
     price: number;
-    imageUrl?: string;
+    images: string[];
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     productName,
     description,
     price,
-    imageUrl,
+    images,
 }) => {
     const [quantity, setQuantity] = useState(cartService.getQuantity(productId));
 
@@ -27,7 +27,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
             description,
             price,
             quantity: 1,
-            imageUrl
+            imageUrl: images[0]
         });
         const newQuantity = cartService.getQuantity(productId);
         setQuantity(newQuantity);
@@ -48,7 +48,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
     return (
         <Link to={`/product/${productId}`} style={{ textDecoration: "none", color: "inherit" }}>
             <div className="product-card">
-                {imageUrl && <img src={imageUrl} alt={productName} />}
+                {/* TODO: Show all images instead of just one */}
+                {images[0] && <img src={images[0]} alt={productName} />}
                 <h3>{productName}</h3>
                 <p>${price.toFixed(2)}</p>
                 {quantity > 0 && <p>In Cart: {quantity}</p>}

@@ -10,6 +10,7 @@ import { cartService } from "./services/CartService";
 import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
 import ProductPage from "./components/Product/Product";
+import './App.css';
 
 const App: React.FC = () => {
   const hasInitialized = useRef(false);

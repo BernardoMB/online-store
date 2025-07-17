@@ -1,19 +1,32 @@
+import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard/ProductCard";
+import type { Product } from "../model/ProductModel";
+import { ProductsService } from "../services/ProductsService";
 
 const Content: React.FC = () => {
+  const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+  
+  useEffect(() => {
+    const featuredProducts = ProductsService.getFeaturedProducts();
+    setFeaturedProducts(featuredProducts);
+  }, []);
+
   return (
     <main style={{ flex: 1, padding: "1rem", background: "#f9f9f9" }}>
       <h1>Welcome to Your Store!</h1>
       <p>Here’s where your products and store content will go.</p>
-
-      <ProductCard
-        productId="4"
-        productName="Bluetooth Speaker"
-        price={49.99}
-        description="Some description"
-        imageUrl="/images/speaker.jpg"
-      />
-
+      <div className="product-grid">
+        {featuredProducts.map((product: Product) => (
+          <ProductCard
+            key={product.productId}
+            productId={product.productId}
+            productName={product.productName}
+            description={product.description}
+            price={product.price}
+            images={product.images}
+          />
+        ))}
+      </div>
     </main>
   );
 };
