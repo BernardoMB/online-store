@@ -14,7 +14,9 @@ const Layout: React.FC = () => {
       <Header
         expanded={isHeaderExpanded}
         toggleHeader={() => setIsHeaderExpanded((prev) => !prev)}
-        toggleSidebar={() => setIsSidebarOpen((prev) => !prev)}
+        toggleSidebar={() => {
+          setIsSidebarOpen((prev) => !prev);
+        }}
         isSidebarOpen={isSidebarOpen}
       />
 

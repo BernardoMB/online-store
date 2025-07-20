@@ -4,6 +4,7 @@ import "./Checkout.css";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
 import ProductCard from "../ProductCard/ProductCard";
 import type { CartItem } from "../../model/CartModel";
+import { Text } from "@chakra-ui/react";
 
 const Checkout: React.FC = () => {
   const [items, setItems] = useState(cartService.getItems());
@@ -59,6 +60,7 @@ const Checkout: React.FC = () => {
   return (
     <div className="checkout-page">
       <h2>🧾 Checkout</h2>
+      <Text>Ready to bring home something hoot-worthy?</Text>
 
       {items.length === 0 ? (
         <p>Your cart is empty.</p>

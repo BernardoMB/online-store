@@ -3,6 +3,7 @@ import { ProductsService } from "../../services/ProductsService";
 import ProductCard from "../ProductCard/ProductCard";
 import "./Products.css"
 import type { Product } from "../../model/ProductModel";
+import { Text } from "@chakra-ui/react";
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -15,6 +16,7 @@ const Products: React.FC = () => {
   return (
     <div className="products-page">
       <h2>🛍️ Our Products</h2>
+      <Text>From soft hues to bold hoots—browse what makes your style sing.</Text>
       <div className="product-grid">
         {products.map((product: Product) => (
           <ProductCard
