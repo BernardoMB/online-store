@@ -52,3 +52,7 @@ export default tseslint.config({
   },
 })
 ```
+
+# UIX
+
+The UI implements Chakra UI. The library was installed following the [Chakra UI tutorial](https://www.youtube.com/watch?v=WJIWd7-aZQ0).

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Content from "./Content";
+import { Box } from "@chakra-ui/react";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
             <button onClick={() => navigate("/products")}>
                 Shop Products
             </button>
+            <Box>Chakra box works!</Box>
         </>
     );
 };

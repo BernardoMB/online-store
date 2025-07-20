@@ -1,3 +1,4 @@
+import { Provider } from "./components/ui/provider";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home";
@@ -9,7 +10,7 @@ import { cartService } from "./services/CartService";
 import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
 import ProductPage from "./components/Product/Product";
-import './App.css';
+import './App.css'; 
 
 const App: React.FC = () => {
   const hasInitialized = useRef(false);
@@ -25,19 +26,21 @@ const App: React.FC = () => {
       .catch(err => console.error("Cart load error:", err));
   }, []);
   
-  return <Router>
-    <Routes>
-      <Route path="/" element={<Layout />}>
-      <Route index element={<Home />} />
-        <Route path="home" element={<Home />} />
-        <Route path="products" element={<Products />} />
-        <Route path="about" element={<About />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="success" element={<Success />} />
-        <Route path="/product/:productId" element={<ProductPage />} />
-      </Route>
-    </Routes>
-  </Router>;
+  return <Provider>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="products" element={<Products />} />
+          <Route path="about" element={<About />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="success" element={<Success />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
+        </Route>
+      </Routes>
+    </Router>
+  </Provider>;
 }
 
 export default App;
