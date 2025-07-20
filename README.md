@@ -53,6 +53,37 @@ export default tseslint.config({
 })
 ```
 
+# Debug
+
+✅ Step-by-Step: View React App on Your Phone
+1. Start the Dev Server with Host Option
+```bash
+npm run dev -- --host
+```
+This makes your app accessible over your local network.
+
+⚠️ You must be connected to the same Wi-Fi on both your computer and your phone.
+
+2. Find Your Local IP Address
+Run this in your terminal (macOS/Linux):
+
+```bash
+ipconfig getifaddr en0
+```
+Or on Windows:
+
+```bash
+ipconfig
+```
+Look for something like 192.168.1.42. This is your machine’s local IP.
+
+3. Access from Your Phone’s Browser
+Open Chrome/Safari on your phone and enter:
+```
+http://192.168.1.42:5173
+```
+(Replace 192.168.1.42 with your actual IP.)
+
 # UIX
 
 The UI implements Chakra UI. The library was installed following the [Chakra UI tutorial](https://www.youtube.com/watch?v=WJIWd7-aZQ0).

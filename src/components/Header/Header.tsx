@@ -1,4 +1,5 @@
 import { useCartTotals } from "../../hooks/useCart";
+import { ColorModeToggler } from "../ColorModeToggler";
 import './Header.css';
 
 type HeaderProps = {
@@ -26,6 +27,7 @@ const Header: React.FC<HeaderProps> = ({
         {expanded ? "Collapse Header" : "Expand Header"}
       </button> */}
       <div className="spacer"></div>
+      <ColorModeToggler></ColorModeToggler>
       <div>
         <strong>🛒 Cart:</strong> {count} item{count !== 1 && "s"} — ${price.toFixed(2)}
       </div>

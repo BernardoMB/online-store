@@ -14,6 +14,19 @@ const Home: React.FC = () => {
                 Shop Products
             </button>
             <Box>Chakra box works!</Box>
+            <Box
+                data-state="open"
+                _open={{
+                    animationName: "fade-in, ease-in",
+                    animationDuration: "5000ms",
+                }}
+                _closed={{
+                    animationName: "fade-out, ease-out",
+                    animationDuration: "5000ms",
+                }}
+            >
+                This is a composed animation
+            </Box>
         </>
     );
 };
