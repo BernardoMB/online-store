@@ -1,11 +1,11 @@
-"use client"
-
 import type { IconButtonProps, SpanProps } from "@chakra-ui/react"
 import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react"
 import { ThemeProvider, useTheme } from "next-themes"
 import type { ThemeProviderProps } from "next-themes"
 import * as React from "react"
 import { LuMoon, LuSun } from "react-icons/lu"
+
+// Review documentation on Color Mode: https://www.chakra-ui.com/docs/components/concepts/color-mode
 
 export interface ColorModeProviderProps extends ThemeProviderProps {}
 
@@ -23,6 +23,10 @@ export interface UseColorModeReturn {
   toggleColorMode: () => void
 }
 
+/**
+ * The useColorMode hook returns the current color mode and a function to toggle the color mode.
+ * Calling toggleColorMode or setColorMode anywhere in your app tree toggles the color mode from light or dark and vice versa.
+ */
 export function useColorMode(): UseColorModeReturn {
   const { resolvedTheme, setTheme, forcedTheme } = useTheme()
   const colorMode = forcedTheme || resolvedTheme
@@ -36,6 +40,10 @@ export function useColorMode(): UseColorModeReturn {
   }
 }
 
+/**
+ * The useColorModeValue hook returns a value based on the current color mode.
+ * The value returned will be the value of the light mode if the color mode is light, and the value of the dark mode if the color mode is dark.
+ */
 export function useColorModeValue<T>(light: T, dark: T) {
   const { colorMode } = useColorMode()
   return colorMode === "dark" ? dark : light
@@ -48,6 +56,11 @@ export function ColorModeIcon() {
 
 interface ColorModeButtonProps extends Omit<IconButtonProps, "aria-label"> {}
 
+/**
+ * Ude this button to toggle the color mode.
+ * The color mode snippet comes with the ColorModeButton component built-in, you can import it to render an icon button that toggles the color mode.
+ * It renders a skeleton on the server side and the icon on the client side.
+ */
 export const ColorModeButton = React.forwardRef<
   HTMLButtonElement,
   ColorModeButtonProps
@@ -75,6 +88,9 @@ export const ColorModeButton = React.forwardRef<
   )
 })
 
+/**
+ * Use this component as wrapper to those components that enforce the Light color mode
+ */
 export const LightMode = React.forwardRef<HTMLSpanElement, SpanProps>(
   function LightMode(props, ref) {
     return (
@@ -91,6 +107,9 @@ export const LightMode = React.forwardRef<HTMLSpanElement, SpanProps>(
   },
 )
 
+/**
+ * Use this component as wrapper to those components that enforce the Dark color mode
+ */
 export const DarkMode = React.forwardRef<HTMLSpanElement, SpanProps>(
   function DarkMode(props, ref) {
     return (
