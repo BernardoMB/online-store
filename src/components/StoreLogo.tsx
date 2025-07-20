@@ -1,15 +1,14 @@
-import { Box } from '@chakra-ui/react';
-
 type LogoProps = {
   color?: string;
   width?: string;
   height?: string;
-};
+}  & React.SVGProps<SVGSVGElement>;
 
 export const StoreLogo = ({
   color = 'currentColor',
   width = '200px',
   height = '278px',
+  ...props
 }: LogoProps) => {
   return (
     <svg
@@ -19,6 +18,7 @@ export const StoreLogo = ({
       width={width}
       height={height}
       role="img"
+      {...props}
     >
       <title>Hue & Hoot Logo</title>
       <path

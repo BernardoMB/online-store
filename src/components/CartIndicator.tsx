@@ -6,9 +6,10 @@ import { useColorModeValue } from './ui/color-mode';
 type CartIndicatorProps = {
   count: number;
   price: number;
+  showPrice: boolean;
 };
 
-export function CartIndicator({ count, price }: CartIndicatorProps) {
+export function CartIndicator({ count, price, showPrice }: CartIndicatorProps) {
   const navigate = useNavigate();
 
   // Theme-aware values for hover and text color
@@ -79,9 +80,11 @@ export function CartIndicator({ count, price }: CartIndicatorProps) {
           )}
         </Box>
 
-        <Text fontWeight="bold" fontSize="md" color={textColor}>
-          ${price.toFixed(2)}
-        </Text>
+        {showPrice && (
+          <Text fontWeight="bold" fontSize="md" color={textColor}>
+            ${price.toFixed(2)}
+          </Text>
+        )}
       </Flex>
     </>
   );
