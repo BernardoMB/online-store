@@ -2,15 +2,21 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Content from "./Content";
 import { Box, Button, Center } from "@chakra-ui/react";
+import { useColorModeValue } from "./ui/color-mode";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
 
+    const welcomeMessageBackgroundColor = useColorModeValue('gray.200', 'gray.500');
+    const welcomeMessageColor = useColorModeValue('gray.500', 'gray.200');
+
     return (
         <>
-            <Center>
-                <h2>🏠 Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
-            </Center>
+            <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" >
+                <Center>
+                    <h2>Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
+                </Center>
+            </Box>
 
             {/* Composed animation */}
             <Box data-state="open"
