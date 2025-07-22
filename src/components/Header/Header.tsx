@@ -25,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
+      {/* App Header */}
       <Box as="header" className="site-header" boxShadow={{ base: '0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1)', md: 'none' }}>
         <div className="header-container">
           <div className="header-section left">
@@ -52,7 +53,12 @@ const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
       </Box>
-      <Box as="header" className="site-header" display={{ base: 'none', md: 'block' }} boxShadow={{ md: '0 0 1px -1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1)', base: 'none' }}>
+      {/* Navigation items */}
+      <Box as="header"
+        className="site-header"
+        display={{ base: 'none', md: 'block' }}
+        boxShadow={{ md: '0 0 1px -1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1)', base: 'none' }}
+      >
         <div className="header-container" style={{ height: '2em' }}>
           <AbsoluteCenter>
             <HStack gap={10}>
@@ -64,7 +70,11 @@ const Header: React.FC<HeaderProps> = ({
               ].map((link, index) =>
                 <NavLink to={link.to} style={{ textDecoration: 'none' }} key={`sidebar-navlink-${index}`}>
                   {({ isActive }) => (
-                    <Text fontWeight="medium" _hover={{ textDecoration: 'underline' }} color={isActive ? 'orange.500' : 'unset'}>{link.label}</Text>
+                    <Text fontWeight="medium"
+                      _hover={{ textDecoration: 'underline' }}
+                      color={isActive ? 'orange.500' : 'unset'}
+                      whiteSpace={'nowrap'}
+                    >{link.label}</Text>
                   )}
                 </NavLink>
               )}
