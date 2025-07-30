@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Content from "./Content";
 import { Box, Button, Center } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
+import AppSwiper from "./Swiper/Swiper";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -12,6 +13,7 @@ const Home: React.FC = () => {
 
     return (
         <>
+            <AppSwiper></AppSwiper>
             <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" >
                 <Center>
                     <h2>Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
