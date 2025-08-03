@@ -4,6 +4,8 @@ import Content from "./Content";
 import { Box, Button, Center } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
 import AppSwiper from "./Swiper/Swiper";
+import Welcome from "./Welcome/Welcome";
+import InfiniteCarousel from "./InfiniteCarousel/InfiniteCarousel";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -13,6 +15,9 @@ const Home: React.FC = () => {
 
     return (
         <>
+            <Welcome></Welcome>
+            <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
+            <InfiniteCarousel></InfiniteCarousel>
             <AppSwiper></AppSwiper>
             <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" >
                 <Center>

@@ -35,6 +35,7 @@ class CartService {
     saveCartToIndexedDB(this.getItems());
   }
 
+  // Empty cart
   empty(): void {
     this.items.clear();
     saveCartToIndexedDB(this.getItems());
@@ -63,6 +64,7 @@ class CartService {
     return Array.from(this.items.values());
   }
 
+  // Get item quantity
   getQuantity(productId: string): number {
     return this.items.get(productId)?.quantity || 0;
   }

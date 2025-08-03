@@ -22,11 +22,14 @@ const Header: React.FC<HeaderProps> = ({
   const { price, count } = useCartTotals();
 
   const logoColor = useColorModeValue('black', 'white');
+  const boxShadowColor = useColorModeValue('rgba(20, 23, 28, .1)', 'rgba(100, 98, 98, .80)');
 
   return (
     <>
       {/* App Header */}
-      <Box as="header" className="site-header" boxShadow={{ base: '0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1)', md: 'none' }}>
+      <Box as="header" className="site-header" 
+        boxShadow={{ base: `0 0 1px 1px ${boxShadowColor}, 0 3px 1px 0 ${boxShadowColor}`, md: 'none' }}
+      >
         <div className="header-container">
           <div className="header-section left">
             <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }}>
@@ -57,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({
       <Box as="header"
         className="site-header"
         display={{ base: 'none', md: 'block' }}
-        boxShadow={{ md: '0 0 1px -1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1)', base: 'none' }}
+        boxShadow={{ md: `0 0 1px -1px ${boxShadowColor}, 0 3px 1px 0 ${boxShadowColor}`, base: 'none' }}
       >
         <div className="header-container" style={{ height: '2em' }}>
           <AbsoluteCenter>
@@ -72,7 +75,9 @@ const Header: React.FC<HeaderProps> = ({
                   {({ isActive }) => (
                     <Text fontWeight="medium"
                       _hover={{ textDecoration: 'underline' }}
-                      color={isActive ? 'orange.500' : 'unset'}
+                      color={(isActive ? (
+                        link.to == '/home' ? 'pink.300' : 
+                        link.to == '/products' ? 'green.300' : 'orange.500') : 'unset')}
                       whiteSpace={'nowrap'}
                     >{link.label}</Text>
                   )}
