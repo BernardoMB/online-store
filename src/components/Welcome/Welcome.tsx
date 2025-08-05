@@ -3,17 +3,14 @@ import bannerImg from '../../assets/welcome.png';
 import { Box, Button, Container, Flex, HStack, Image, Stack, Text, VStack } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 import { useColorModeValue } from '../ui/color-mode';
+import HomePageSection from '../HomePageSection/HomePageSection';
 
 const Welcome: React.FC = () => {
     const navigate = useNavigate();
 
-    const linearGradientColor = useColorModeValue('linear-gradient(#CBD5E0, #F7FAFC)', 'linear-gradient(#717171, #000000)');
-    const linearGradientColor2 = useColorModeValue('linear-gradient(#F7FAFC, #CBD5E0)', 'linear-gradient(#000000, #717171)');
-
     return (
-        <Container paddingInline={'2rem'} position={'relative'} maxWidth={'80rem'} width='100%' marginInline={'auto'}>
-            <Container paddingBlock={'6rem'}>
-                <HStack justifyContent={'space-between'}>
+        <HomePageSection>
+            <HStack justifyContent={'space-between'}>
                     <Stack gap={'2rem'}>
                         <Stack gap={'1.5rem'}>
                             <Text as='h1' className='welcome-phrase'>Glow rings, made to be stared at</Text>
@@ -47,25 +44,8 @@ const Welcome: React.FC = () => {
                         </HStack>
                     </Stack>
                     <Image src={bannerImg} alt="Hue & Hoot Banner" height={'30rem'} marginRight={'6rem'}/>
-                </HStack>
-                <Box position={'absolute'} top={'0rem'} left={'0rem'} width={'100%'} pointerEvents={'none'} aria-hidden='true' role='presentation'>
-                    {/* Left */}
-                    <Box position={'absolute'} top={'0rem'} left={'0rem'} height={'7.125rem'} borderLeftWidth={'1px'} zIndex={1}></Box>
-                    <Box position={'absolute'} top={'0rem'} left={'0rem'} height={'12rem'} width={'1px'} zIndex={2} bgImage={linearGradientColor} ></Box>
-                    {/* Right */}
-                    <Box position={'absolute'} top={'0rem'} right={'0rem'} height={'7.125rem'} borderLeftWidth={'1px'} zIndex={1}></Box>
-                    <Box position={'absolute'} top={'0rem'} right={'0rem'} height={'12rem'} width={'1px'} zIndex={2} bgImage={linearGradientColor} ></Box>
-                </Box>
-                <Box position={'absolute'} bottom={'0rem'} left={'0rem'} width={'100%'} pointerEvents={'none'} aria-hidden='true' role='presentation'>
-                    {/* Left */}
-                    <Box position={'absolute'} bottom={'0rem'} left={'0rem'} height={'7.125rem'} borderLeftWidth={'1px'} zIndex={1}></Box>
-                    <Box position={'absolute'} bottom={'0rem'} left={'0rem'} height={'12rem'} width={'1px'} zIndex={2} bgImage={linearGradientColor2} ></Box>
-                    {/* Right */}
-                    <Box position={'absolute'} bottom={'0rem'} right={'0rem'} height={'7.125rem'} borderLeftWidth={'1px'} zIndex={1}></Box>
-                    <Box position={'absolute'} bottom={'0rem'} right={'0rem'} height={'12rem'} width={'1px'} zIndex={2} bgImage={linearGradientColor2} ></Box>
-                </Box>
-            </Container>
-        </Container>
+            </HStack>
+        </HomePageSection>
     );
 };
 

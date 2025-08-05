@@ -1,4 +1,4 @@
-import { AbsoluteCenter, Box, Button, Center, HStack, IconButton, Text } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Button, Container, HStack, Text } from "@chakra-ui/react";
 import { useCartTotals } from "../../hooks/useCart";
 import { ColorModeButton, useColorModeValue } from "../ui/color-mode";
 import './Header.css';
@@ -21,71 +21,85 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const { price, count } = useCartTotals();
 
+  const backgroundColor = useColorModeValue('white', '#222221');
   const logoColor = useColorModeValue('black', 'white');
   const boxShadowColor = useColorModeValue('rgba(20, 23, 28, .1)', 'rgba(100, 98, 98, .80)');
 
   return (
     <>
       {/* App Header */}
-      <Box as="header" className="site-header" 
-        boxShadow={{ base: `0 0 1px 1px ${boxShadowColor}, 0 3px 1px 0 ${boxShadowColor}`, md: 'none' }}
-      >
-        <div className="header-container">
-          <div className="header-section left">
-            <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }}>
-              {isSidebarOpen ? <div>&#10006;</div> : ("☰")}
-            </Button>
-            &emsp;
-          </div>
-          <AbsoluteCenter>
-            <div className="header-section center">
-              <StoreLogo color={logoColor} width="35" height="46" style={{ marginTop: "-5px" }} />
-              &ensp;
-              <Box whiteSpace="nowrap">
-                <Text textStyle="xl">Hue & Hoot</Text>
-              </Box>
+      <Box boxShadow={{ base: `0 0 1px 1px ${boxShadowColor}, 0 1px 1px 0 ${boxShadowColor}`, md: 'none' }}>
+        <Container paddingInline={'2rem'}
+          position={'relative'}
+          maxWidth={'80rem'}
+          width={'100%'}
+          marginInline={'auto'}
+        >
+          <Box width="100%" borderInlineWidth={'1px'} className="site-header" backgroundColor={backgroundColor}>
+            <div className="header-container">
+              <div className="header-section left">
+                <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }}>
+                  {isSidebarOpen ? <div>&#10006;</div> : ("☰")}
+                </Button>
+                &emsp;
+              </div>
+              <AbsoluteCenter>
+                <div className="header-section center">
+                  <StoreLogo color={logoColor} width="35" height="46" style={{ marginTop: "-5px" }} />
+                  &ensp;
+                  <Box whiteSpace="nowrap">
+                    <Text textStyle="xl">Hue & Hoot</Text>
+                  </Box>
+                </div>
+              </AbsoluteCenter>
+              {/* <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
+            {expanded ? "Collapse Header" : "Expand Header"}
+          </button> */}
+              {/* <div className="spacer"></div> */}
+              <div className="header-section right">
+                <ColorModeButton></ColorModeButton>
+                <CartIndicator count={count} price={price} showPrice={false}></CartIndicator>
+              </div>
             </div>
-          </AbsoluteCenter>
-          {/* <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
-          {expanded ? "Collapse Header" : "Expand Header"}
-        </button> */}
-          {/* <div className="spacer"></div> */}
-          <div className="header-section right">
-            <ColorModeButton></ColorModeButton>
-            <CartIndicator count={count} price={price} showPrice={false}></CartIndicator>
-          </div>
-        </div>
+          </Box>
+        </Container>
       </Box>
+
       {/* Navigation items */}
-      <Box as="header"
-        className="site-header"
-        display={{ base: 'none', md: 'block' }}
-        boxShadow={{ md: `0 0 1px -1px ${boxShadowColor}, 0 3px 1px 0 ${boxShadowColor}`, base: 'none' }}
-      >
-        <div className="header-container" style={{ height: '2em' }}>
-          <AbsoluteCenter>
-            <HStack gap={10}>
-              {[
-                { to: "/home", label: "Home" },
-                { to: "/products", label: "Shop Products" },
-                { to: "/about", label: "About Us" },
-                { to: "/checkout", label: "Checkout" },
-              ].map((link, index) =>
-                <NavLink to={link.to} style={{ textDecoration: 'none' }} key={`sidebar-navlink-${index}`}>
-                  {({ isActive }) => (
-                    <Text fontWeight="medium"
-                      _hover={{ textDecoration: 'underline' }}
-                      color={(isActive ? (
-                        link.to == '/home' ? 'pink.300' : 
-                        link.to == '/products' ? 'green.300' : 'orange.500') : 'unset')}
-                      whiteSpace={'nowrap'}
-                    >{link.label}</Text>
+      <Box boxShadow={{ md: `0 0 1px -1px ${boxShadowColor}, 0 1px 1px 0 ${boxShadowColor}`, base: 'none' }}>
+        <Container paddingInline={'2rem'}
+          position={'relative'}
+          maxWidth={'80rem'}
+          width={'100%'}
+          marginInline={'auto'}
+        >
+          <Box width="100%" borderInlineWidth={'1px'} className="site-header" backgroundColor={backgroundColor}>
+            <div className="header-container" style={{ height: '2em' }}>
+              <AbsoluteCenter>
+                <HStack gap={10}>
+                  {[
+                    { to: "/home", label: "Home" },
+                    { to: "/products", label: "Shop Products" },
+                    { to: "/about", label: "About Us" },
+                    { to: "/checkout", label: "Checkout" },
+                  ].map((link, index) =>
+                    <NavLink to={link.to} style={{ textDecoration: 'none' }} key={`sidebar-navlink-${index}`}>
+                      {({ isActive }) => (
+                        <Text fontWeight="medium"
+                          _hover={{ textDecoration: 'underline' }}
+                          color={(isActive ? (
+                            link.to == '/home' ? 'pink.300' :
+                              link.to == '/products' ? 'green.300' : 'orange.500') : 'unset')}
+                          whiteSpace={'nowrap'}
+                        >{link.label}</Text>
+                      )}
+                    </NavLink>
                   )}
-                </NavLink>
-              )}
-            </HStack>
-          </AbsoluteCenter>
-        </div>
+                </HStack>
+              </AbsoluteCenter>
+            </div>
+          </Box>
+        </Container>
       </Box>
     </>
   );

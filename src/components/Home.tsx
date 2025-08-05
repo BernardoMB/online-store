@@ -1,29 +1,36 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Content from "./Content";
-import { Box, Button, Center } from "@chakra-ui/react";
+import { Box, Button, Center, Container } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
 import AppSwiper from "./Swiper/Swiper";
 import Welcome from "./Welcome/Welcome";
 import InfiniteCarousel from "./InfiniteCarousel/InfiniteCarousel";
+import SliderSection from "./SliderSection/SliderSection";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
 
-    const welcomeMessageBackgroundColor = useColorModeValue('gray.200', 'gray.500');
+    const welcomeMessageBackgroundColor = useColorModeValue('#fafaf9', 'gray.900');
     const welcomeMessageColor = useColorModeValue('gray.500', 'gray.200');
 
     return (
         <>
             <Welcome></Welcome>
             <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
+            <Container paddingInline={'2rem'} position={'relative'} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
+                <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
+                    <Center>
+                        <h2>Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
+                    </Center>
+                </Box>
+            </Container>
+            <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
             <InfiniteCarousel></InfiniteCarousel>
+            <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
+            <SliderSection></SliderSection>
             <AppSwiper></AppSwiper>
-            <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" >
-                <Center>
-                    <h2>Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
-                </Center>
-            </Box>
+
 
             {/* Composed animation */}
             <Box data-state="open"

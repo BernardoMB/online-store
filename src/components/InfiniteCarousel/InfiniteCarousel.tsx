@@ -1,57 +1,69 @@
-import { Container } from '@chakra-ui/react';
+import { Container, Stack, Text, VStack } from '@chakra-ui/react';
 import './InfiniteCarousel.css'
+import { useColorModeValue } from '../ui/color-mode';
 
 const InfiniteCarousel: React.FC = () => {
+    const patternImg = useColorModeValue('pattern_light.svg', 'pattern_dark.svg');
+
     return (
         <>
             <Container paddingInline={'2rem'} position={'relative'} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
-                <Container as="section" backgroundImage={'url(/images/pattern_light.svg)'} borderInlineWidth={'1px'} paddingInline={'0rem'} paddingBlock={'2rem'}>
-                    <div className="slider">
-                        <div className="slide-track">
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/1.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/2.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/3.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/4.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/5.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/6.png" height="100" width="250" alt="" />
-                            </div>
-                            <div className="slide">
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/557257/7.png" height="100" width="250" alt="" />
+                <Container as="section" 
+                    backgroundImage={`url(/images/${patternImg})`} 
+                    borderInlineWidth={'1px'} 
+                    paddingInline={'0rem'} 
+                    paddingBlock={'2rem'}
+                    overflow={'hidden'}
+                >
+                    <VStack gap={'1rem'}>
+                        <Text as='h2' fontSize={'1.125rem'} lineHeight={'1.75 rem'}>Featured Products</Text>
+                        <div className="slider">
+                            <div className="slide-track">
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
+                                <div className="slide">
+                                    <img src="/images/ring1.png" alt="" />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </VStack>
                 </Container>
             </Container>
         </>
