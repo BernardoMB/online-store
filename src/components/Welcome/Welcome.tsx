@@ -16,6 +16,7 @@ const Welcome: React.FC = () => {
                 gap={{md: '2rem'}}
                 alignItems={{ md: 'center'}}
             >
+                {/* Slider */}
                 <Box flexGrow={{md: 1}} 
                     borderStartEndRadius={'4rem'} 
                     borderEndStartRadius={'4rem'} 
@@ -32,6 +33,7 @@ const Welcome: React.FC = () => {
                         </BeforeAfterSlider>
                     </AspectRatio>
                 </Box>
+                {/* Text and buttons */}
                 <Stack gap={'2rem'} maxWidth={{md: '22rem', lg: '32rem'}} minWidth={{lg: '22rem'}}>
                     <Stack gap={'1.5rem'}>
                         <Text as='h1' 

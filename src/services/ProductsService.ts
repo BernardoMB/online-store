@@ -6,7 +6,7 @@ const products: Product[] = [
     productName: "Wireless Mouse",
     description: "Ergonomic and precise, with Bluetooth support.",
     price: 29.99,
-    images: ["/images/mouse.jpg"],
+    images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: true
   },
@@ -15,7 +15,7 @@ const products: Product[] = [
     productName: "Mechanical Keyboard",
     description: "Backlit keys, satisfying switches.",
     price: 79.99,
-    images: ["/images/keyboard.jpg"],
+    images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
   },
@@ -24,7 +24,7 @@ const products: Product[] = [
     productName: "Noise-Canceling Headphones",
     description: "Immersive sound and silence.",
     price: 149.99,
-    images: ["/images/headphones.jpg"],
+    images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
   },
@@ -33,7 +33,7 @@ const products: Product[] = [
     productName: "Bluetooth Speaker",
     description: "Best quiality sound and portability.",
     price: 149.99,
-    images: ["/images/speaker.jpg"],
+    images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
   },

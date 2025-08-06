@@ -4,6 +4,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import Footer from "../Footer/Footer";
 import "./Layout.css";
 import Header from "../Header/Header";
+import ThemeColorMetaTag from "../ThemeColorMetaTag";
 
 const Layout: React.FC = () => {
   const [isHeaderExpanded, setIsHeaderExpanded] = useState(false);
@@ -11,6 +12,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="app-container">
+      <ThemeColorMetaTag />
       <Header
         expanded={isHeaderExpanded}
         toggleHeader={() => setIsHeaderExpanded((prev) => !prev)}
