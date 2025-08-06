@@ -7,11 +7,14 @@ const InfiniteCarousel: React.FC = () => {
 
     return (
         <>
-            <Container paddingInline={'2rem'} position={'relative'} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
-                <Container as="section" 
-                    backgroundImage={`url(/images/${patternImg})`} 
-                    borderInlineWidth={'1px'} 
-                    paddingInline={'0rem'} 
+            <Container position={'relative'}
+                paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
+                maxWidth={'80rem'} width={'100%'} marginInline={'auto'}
+            >
+                <Container as="section"
+                    backgroundImage={`url(/images/${patternImg})`}
+                    borderInlineWidth={'1px'}
+                    paddingInline={'0rem'}
                     paddingBlock={'2rem'}
                     overflow={'hidden'}
                 >

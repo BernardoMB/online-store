@@ -23,27 +23,29 @@ const Header: React.FC<HeaderProps> = ({
 
   const backgroundColor = useColorModeValue('white', '#222221');
   const logoColor = useColorModeValue('black', 'white');
-  const boxShadowColor = useColorModeValue('rgba(20, 23, 28, .1)', 'rgba(100, 98, 98, .80)');
 
   return (
     <>
       {/* App Header */}
-      <Box boxShadow={{ base: `0 0 1px 1px ${boxShadowColor}, 0 1px 1px 0 ${boxShadowColor}`, md: 'none' }}>
-        <Container paddingInline={'2rem'}
+      <Box as="header" borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'}>
+        <Container paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}
           position={'relative'}
           maxWidth={'80rem'}
           width={'100%'}
           marginInline={'auto'}
         >
-          <Box width="100%" borderInlineWidth={'1px'} className="site-header" backgroundColor={backgroundColor}>
+          <Box width="100%" borderInlineWidth={'1px'} className="site-header" 
+            paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}
+            backgroundColor={backgroundColor}
+          >
             <div className="header-container">
               <div className="header-section left">
-                <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }}>
+                <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }} paddingInline={{base: '0.5rem', sm: '1rem'}}>
                   {isSidebarOpen ? <div>&#10006;</div> : ("☰")}
                 </Button>
                 &emsp;
               </div>
-              <AbsoluteCenter>
+              <AbsoluteCenter marginLeft={{base: '-28px', sm: '0px'}}>
                 <div className="header-section center">
                   <StoreLogo color={logoColor} width="35" height="46" style={{ marginTop: "-5px" }} />
                   &ensp;
@@ -53,8 +55,8 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
               </AbsoluteCenter>
               {/* <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
-            {expanded ? "Collapse Header" : "Expand Header"}
-          </button> */}
+              {expanded ? "Collapse Header" : "Expand Header"}
+              </button> */}
               {/* <div className="spacer"></div> */}
               <div className="header-section right">
                 <ColorModeButton></ColorModeButton>
@@ -66,8 +68,9 @@ const Header: React.FC<HeaderProps> = ({
       </Box>
 
       {/* Navigation items */}
-      <Box boxShadow={{ md: `0 0 1px -1px ${boxShadowColor}, 0 1px 1px 0 ${boxShadowColor}`, base: 'none' }}>
-        <Container paddingInline={'2rem'}
+      <Box borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'} display={{base:'none', md: 'block'}}>
+        <Container 
+          paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}
           position={'relative'}
           maxWidth={'80rem'}
           width={'100%'}

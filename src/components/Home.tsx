@@ -6,19 +6,19 @@ import { useColorModeValue } from "./ui/color-mode";
 import AppSwiper from "./Swiper/Swiper";
 import Welcome from "./Welcome/Welcome";
 import InfiniteCarousel from "./InfiniteCarousel/InfiniteCarousel";
-import SliderSection from "./SliderSection/SliderSection";
+import IngredientsSection from "./IngredientsSection/IngredientsSection";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
 
-    const welcomeMessageBackgroundColor = useColorModeValue('#fafaf9', 'gray.900');
+    const welcomeMessageBackgroundColor = useColorModeValue('white', '#222221');
     const welcomeMessageColor = useColorModeValue('gray.500', 'gray.200');
 
     return (
         <>
             <Welcome></Welcome>
             <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
-            <Container paddingInline={'2rem'} position={'relative'} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
+            <Container position={'relative'} paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}  maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
                 <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
                     <Center>
                         <h2>Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
@@ -28,9 +28,8 @@ const Home: React.FC = () => {
             <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
             <InfiniteCarousel></InfiniteCarousel>
             <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
-            <SliderSection></SliderSection>
+            <IngredientsSection></IngredientsSection>
             <AppSwiper></AppSwiper>
-
 
             {/* Composed animation */}
             <Box data-state="open"

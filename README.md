@@ -86,4 +86,7 @@ http://192.168.1.42:5173
 
 # UIX
 
-The UI implements Chakra UI. The library was installed following the [Chakra UI tutorial](https://www.youtube.com/watch?v=WJIWd7-aZQ0).
+### Chakra UI 
+The UI implements Chakra UI. The library was installed following the [Chakra UI tutorial](https://www.youtube.com/watch?v=WJIWd7-aZQ0). Review commits, since the documentation is outdated.
+
+### Swiper JS 

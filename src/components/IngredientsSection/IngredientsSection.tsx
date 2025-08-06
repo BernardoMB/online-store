@@ -1,9 +1,15 @@
 import React from 'react';
-import BeforeAfterSlider from '../BeforeAfterSlider/BeforeAfterSlider';
 import HomePageSection from '../HomePageSection/HomePageSection';
-import { AspectRatio, Box, Grid, GridItem, Stack, Text, VStack } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Stack, Text, Image } from '@chakra-ui/react';
+import imageLight from '../../assets/welcome_light.png';
+import imageDark from '../../assets/welcome_dark.png';
+import { useColorModeValue } from '../ui/color-mode';
 
-const SliderSection: React.FC = () => {
+const IngredientsSection: React.FC = () => {
+    const image = useColorModeValue(
+        <Image src={imageLight} alt="Hue & Hoot Banner" height={'30rem'} />,
+        <Image src={imageDark} alt="Hue & Hoot Banner" height={'30rem'} />
+    );
 
     return (
         <HomePageSection>
@@ -38,19 +44,11 @@ const SliderSection: React.FC = () => {
                     </Stack>
                 </GridItem>
                 <GridItem>
-                    <Box borderStartEndRadius={'4rem'} borderEndStartRadius={'4rem'} padding={'0.5rem'} borderWidth={'1px'}>
-                        <AspectRatio ratio={1} borderRadius={'inherit'}>
-                            <BeforeAfterSlider
-                                beforeSrc='/images/glow_ring_before.jpg'
-                                afterSrc='/images/glow_ring_after.jpg'
-                            >
-                            </BeforeAfterSlider>
-                        </AspectRatio>    
-                    </Box>
+                    {image}
                 </GridItem>
             </Grid>
         </HomePageSection>
     );
 };
 
-export default SliderSection;
+export default IngredientsSection;
