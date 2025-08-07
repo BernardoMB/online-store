@@ -31,7 +31,7 @@ const reviews: Review[] = [
   {
     id: 4,
     image: "images/reviews/reviewImg4.jpg",
-    name: "",
+    name: "Michael D.",
     rating: 5,
     reviewNote: "Bought three—all beautiful, but the green is my favorite. They glow beautifully and feel personal. Not big on crystal healing, but they’re stylish, well-made, and get compliments.",
     createdAt: new Date("2025-08-06T15:23:00"),

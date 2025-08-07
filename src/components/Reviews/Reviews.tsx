@@ -8,6 +8,9 @@ import type { Review as ReviewType } from '@/model/ReviewModel';
 import { ReviewsService } from '@/services/ReviewsService';
 import { Review } from '../Review/Review';
 import HomePageSection from '../HomePageSection/HomePageSection';
+import { Box } from '@chakra-ui/react';
+import './Reviews.css';
+import { useColorModeValue } from '../ui/color-mode';
 
 export default function Reviews() {
   const [reviews, setReviews] = useState<ReviewType[]>([]);
@@ -17,9 +20,11 @@ export default function Reviews() {
     setReviews(allReviews);
   }, []);
 
+  const bulletClass = useColorModeValue('light-bullet', 'dark-bullet');
+
   return (
     <HomePageSection>
-      <Swiper
+      <Swiper className='custom-swiper'
         modules={[Navigation, Pagination, Autoplay]}
         autoplay={{ delay: 3000, disableOnInteraction: true, pauseOnMouseEnter: true }}
         pagination={{ clickable: true }}
@@ -29,7 +34,9 @@ export default function Reviews() {
       >
         {reviews.map((review: ReviewType) => (
           <SwiperSlide>
-            <Review review={review}></Review>
+            <Box pb="2rem">
+              <Review review={review}></Review>
+            </Box>
           </SwiperSlide>
         ))}
       </Swiper>
