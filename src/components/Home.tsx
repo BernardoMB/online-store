@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import Content from "./Content";
 import { Box, Button, Center, Container } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
-import AppSwiper from "./Swiper/Swiper";
+import Reviews from "./Reviews/Reviews";
 import Welcome from "./Welcome/Welcome";
 import InfiniteCarousel from "./InfiniteCarousel/InfiniteCarousel";
 import IngredientsSection from "./IngredientsSection/IngredientsSection";
+import Divider from "./Divider";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
     return (
         <>
             <Welcome></Welcome>
-            <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
+            <Divider />
             <Container position={'relative'} paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}  maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
                 <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
                     <Center>
@@ -25,11 +26,20 @@ const Home: React.FC = () => {
                     </Center>
                 </Box>
             </Container>
-            <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
+            <Divider />
             <InfiniteCarousel></InfiniteCarousel>
-            <Box marginBlock={'0rem'} marginInline={'0rem'} borderInlineStartWidth={0} borderTopWidth={'1px'}></Box>
+            <Divider />
             <IngredientsSection></IngredientsSection>
-            <AppSwiper></AppSwiper>
+            <Divider />
+            <Container position={'relative'} paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}  maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
+                <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
+                    <Center>
+                        <h2>The Glow Speaks for Itself</h2>
+                    </Center>
+                </Box>
+            </Container>
+            <Divider />
+            <Reviews></Reviews>
 
             {/* Composed animation */}
             <Box data-state="open"
@@ -53,4 +63,4 @@ const Home: React.FC = () => {
     );
 };
 
-export default Home
+export default Home;
