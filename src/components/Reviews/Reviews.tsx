@@ -20,17 +20,19 @@ export default function Reviews() {
     setReviews(allReviews);
   }, []);
 
-  const bulletClass = useColorModeValue('light-bullet', 'dark-bullet');
+  const customPaginationBulletClass = useColorModeValue('custom-swiper-pagination-bullet-light', 'custom-swiper-pagination-bullet-dark');
+  const customPaginationBulletActiveClass = useColorModeValue('custom-swiper-pagination-bullet-light-active', 'custom-swiper-pagination-bullet-dark-active');
 
   return (
     <HomePageSection>
       <Swiper className='custom-swiper'
         modules={[Navigation, Pagination, Autoplay]}
-        autoplay={{ delay: 3000, disableOnInteraction: true, pauseOnMouseEnter: true }}
-        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000 * 100000, disableOnInteraction: true, pauseOnMouseEnter: true }}
+        pagination={{ clickable: true, bulletClass: customPaginationBulletClass, bulletActiveClass: customPaginationBulletActiveClass }}
         loop
         spaceBetween={30}
         slidesPerView={1}
+        
       >
         {reviews.map((review: ReviewType) => (
           <SwiperSlide>
