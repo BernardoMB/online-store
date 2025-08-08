@@ -18,10 +18,22 @@ const config = defineConfig({
             _dark: "#191918",
           },
         },
+        myAppBackground2: {
+          value: {
+            _light: "white",
+            _dark: "#222221",
+          },
+        },
         myAppGlobalBorderColor: {
           value: {
             _light: "#e9e8e6",
             _dark: "#2a2a28",
+          },
+        },
+        myAppTextColor: {
+          value: {
+            _light: "#5D5D58",
+            _dark: "#c0beb9",
           },
         },
         myAppBorderGradientTop: {

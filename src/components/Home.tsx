@@ -11,6 +11,7 @@ import Divider from "./Divider";
 import FAQs from "./FAQs/FAQs";
 import HomePageSection from "./HomePageSection/HomePageSection";
 import Contact from "./Contact/Contact";
+import Crystals from "./Crystals/Crystals";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -34,6 +35,8 @@ const Home: React.FC = () => {
             <Divider />
             <IngredientsSection></IngredientsSection>
             <Divider />
+            <Crystals></Crystals>
+            <Divider />
             <Container position={'relative'} paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
                 <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
                     <Center>
@@ -53,20 +56,6 @@ const Home: React.FC = () => {
             <HomePageSection>
                 <Contact />
             </HomePageSection>
-
-            {/* Composed animation */}
-            <Box data-state="open"
-                _open={{
-                    animationName: "fade-in, ease-in",
-                    animationDuration: "5000ms",
-                }}
-                _closed={{
-                    animationName: "fade-out, ease-out",
-                    animationDuration: "5000ms",
-                }}>
-                <Content />
-            </Box>
-
             <Center>
                 <Button onClick={() => navigate("/products")}>
                     Shop Products
