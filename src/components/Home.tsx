@@ -10,6 +10,7 @@ import IngredientsSection from "./IngredientsSection/IngredientsSection";
 import Divider from "./Divider";
 import FAQs from "./FAQs/FAQs";
 import HomePageSection from "./HomePageSection/HomePageSection";
+import Contact from "./Contact/Contact";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Home: React.FC = () => {
         <>
             <Welcome></Welcome>
             <Divider />
-            <Container position={'relative'} paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}  maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
+            <Container position={'relative'} paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
                 <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
                     <Center>
                         <h2>Welcome to Hue & Hoot—where every item tells a story, and every style has a soul.</h2>
@@ -33,7 +34,7 @@ const Home: React.FC = () => {
             <Divider />
             <IngredientsSection></IngredientsSection>
             <Divider />
-            <Container position={'relative'} paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}  maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
+            <Container position={'relative'} paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
                 <Box background={welcomeMessageBackgroundColor} color={welcomeMessageColor} width="100%" padding="4" borderInlineWidth={'1px'}>
                     <Center>
                         <h2>The Glow Speaks for Itself</h2>
@@ -41,10 +42,16 @@ const Home: React.FC = () => {
                 </Box>
             </Container>
             <Divider />
-            <Reviews></Reviews>
+            <HomePageSection>
+                <Reviews />
+            </HomePageSection>
             <Divider />
             <HomePageSection>
                 <FAQs />
+            </HomePageSection>
+            <Divider />
+            <HomePageSection>
+                <Contact />
             </HomePageSection>
 
             {/* Composed animation */}

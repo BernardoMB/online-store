@@ -24,10 +24,9 @@ export default function Reviews() {
   const customPaginationBulletActiveClass = useColorModeValue('custom-swiper-pagination-bullet-light-active', 'custom-swiper-pagination-bullet-dark-active');
 
   return (
-    <HomePageSection>
       <Swiper className='custom-swiper'
         modules={[Navigation, Pagination, Autoplay]}
-        autoplay={{ delay: 3000, disableOnInteraction: true, pauseOnMouseEnter: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: true, pauseOnMouseEnter: true }}
         pagination={{ clickable: true, bulletClass: customPaginationBulletClass, bulletActiveClass: customPaginationBulletActiveClass }}
         loop
         spaceBetween={30}
@@ -42,6 +41,5 @@ export default function Reviews() {
           </SwiperSlide>
         ))}
       </Swiper>
-    </HomePageSection>
   );
 }

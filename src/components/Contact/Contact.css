@@ -1,0 +1,13 @@
+.contact-input-light::placeholder {
+  color: rgb(33, 32, 28);
+}
+.contact-input-light:focus-visible {
+  border: 1px solid #5eead4;
+}
+
+.contact-input-dark::placeholder {
+  color: #7c7b74;
+}
+.contact-input-dark:focus-visible {
+  border: 1px solid #5eead4;
+}
