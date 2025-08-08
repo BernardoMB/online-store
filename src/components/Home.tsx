@@ -8,6 +8,8 @@ import Welcome from "./Welcome/Welcome";
 import InfiniteCarousel from "./InfiniteCarousel/InfiniteCarousel";
 import IngredientsSection from "./IngredientsSection/IngredientsSection";
 import Divider from "./Divider";
+import FAQs from "./FAQs/FAQs";
+import HomePageSection from "./HomePageSection/HomePageSection";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
@@ -40,6 +42,10 @@ const Home: React.FC = () => {
             </Container>
             <Divider />
             <Reviews></Reviews>
+            <Divider />
+            <HomePageSection>
+                <FAQs />
+            </HomePageSection>
 
             {/* Composed animation */}
             <Box data-state="open"

@@ -3,4 +3,5 @@ export type FrequentAskedQuestion = {
     question: string;
     answer: string;
     isActive: Boolean;
+    icon: any;
 };

@@ -50,18 +50,20 @@ const Welcome: React.FC = () => {
                             fontSize={{base: '1rem', lg: 'var(--chakra-font-sizes-xl)'}}
                             color={phraseColor}
                         >
-                            Explore and find your unique style.
+                            Adorn your spirit with handcrafted rings that radiate healing energy, artistic beauty, and inner light
                         </Text>
                     </Stack>
                     <Stack gap={'0.75rem'} direction={{base: 'column', lg: 'row'}}>
                         <Button onClick={() => navigate("/products")}
                             height={{ base: "3rem", lg: "4rem" }}
                             minWidth={{ base: "3rem", lg: "4rem" }}
-                            fontSize={{ base: "1rem", lg: "1.125rem" }}
+                            fontSize={{ base: "1rem", md: "1.125rem" }}
+                            fontWeight={500}
                             lineHeight={'1.55rem'}
-                            lg={{ lineHeight: '1.75rem' }}
+                            md={{ lineHeight: '1.75rem' }}
                             paddingInline={'1.25rem'}
                             gap={'0.625rem'}
+                            borderRadius={'0.125rem'}
                             className='btn btn-2'
                         >
                             Shop Products
@@ -70,10 +72,12 @@ const Welcome: React.FC = () => {
                             variant='outline'
                             height={{ base: "3rem", lg: "4rem" }}
                             minWidth={{ base: "3rem", lg: "4rem" }}
-                            fontSize={{ base: "1rem", lg: "1.125rem" }}
+                            fontSize={{ base: "1rem", md: "1.125rem" }}
+                            fontWeight={500}
                             lineHeight={'1.55rem'}
-                            lg={{ lineHeight: '1.75rem' }}
+                            md={{ lineHeight: '1.75rem' }}
                             paddingInline={'1.25rem'}
+                            borderRadius={'0.125rem'}
                             gap={'0.625rem'}
                         >
                             Other Products
