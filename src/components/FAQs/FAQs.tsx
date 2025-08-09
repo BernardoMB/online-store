@@ -13,8 +13,8 @@ const FAQs: React.FC = () => {
 
     return (
         <>
-        <Box paddingBlock={6}>
-            <Accordion.Root multiple size={'lg'} variant={'enclosed'} borderRadius={'0.125rem'}>
+        <Box>
+            <Accordion.Root multiple size={'lg'} variant={'enclosed'} border={0} borderRadius={'0rem'}>
                 {faqs.map((question: FrequentAskedQuestionType, index) => (
                     <Accordion.Item key={question.id} value={question.id.toString()}>
                         <Accordion.ItemTrigger cursor={'pointer'}>

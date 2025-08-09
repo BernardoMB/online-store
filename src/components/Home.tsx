@@ -49,18 +49,15 @@ const Home: React.FC = () => {
                 <Reviews />
             </HomePageSection>
             <Divider />
-            <HomePageSection>
-                <FAQs />
-            </HomePageSection>
+            <Container position={'relative'} paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
+                <Box width="100%" borderInlineWidth={'1px'}>
+                    <FAQs />
+                </Box>
+            </Container>
             <Divider />
             <HomePageSection>
                 <Contact />
             </HomePageSection>
-            <Center>
-                <Button onClick={() => navigate("/products")}>
-                    Shop Products
-                </Button>
-            </Center>
         </>
     );
 };

@@ -1,5 +1,5 @@
 .contact-input-light::placeholder {
-  color: rgb(33, 32, 28);
+  color: 'red';
 }
 .contact-input-light:focus-visible {
   border: 1px solid #5eead4;

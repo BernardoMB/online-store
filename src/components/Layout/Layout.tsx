@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import "./Layout.css";
 import Header from "../Header/Header";
 import ThemeColorMetaTag from "../ThemeColorMetaTag";
+import Divider from "../Divider";
 
 const Layout: React.FC = () => {
   const [isHeaderExpanded, setIsHeaderExpanded] = useState(false);
@@ -38,7 +39,8 @@ const Layout: React.FC = () => {
             <Outlet />
         </main>
       </div>
-
+      
+      <Divider />
       <Footer />
     </div>
   );

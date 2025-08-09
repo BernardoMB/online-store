@@ -20,7 +20,7 @@ const InfiniteCarousel: React.FC = () => {
                     overflow={'hidden'}
                 >
                     <VStack gap={'1rem'}>
-                        <Text as='h2' fontSize={'1.125rem'} lineHeight={'1.75 rem'} fontWeight={700}>Featured Products</Text>
+                        <Text as='h2' fontSize={'1.125rem'} lineHeight={'1.75rem'} fontWeight={500}>Featured Products</Text>
                         <Marquee style={{overflow: 'hidden'}} speed={20}>
                             {/* <div className="slider">
                                 <div className="slide-track"> */}
