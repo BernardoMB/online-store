@@ -6,7 +6,7 @@ const products: Product[] = [
     productName: "Wireless Mouse",
     description: "Ergonomic and precise, with Bluetooth support.",
     price: 29.99,
-    images: ["/images/orange-ring-1.jpg"],
+    images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
     isActive: true,
     featured: true
   },
