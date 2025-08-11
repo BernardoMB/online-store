@@ -5,10 +5,12 @@ import {
     Icon,
     Stack,
     Box,
+    Blockquote,
 } from "@chakra-ui/react";
 import { IoMdStar } from 'react-icons/io';
 import type { Review as ReviewType } from "../../model/ReviewModel";
 import { useColorModeValue } from "../ui/color-mode";
+import { BiSolidQuoteAltLeft } from "react-icons/bi";
 
 type ReviewProps = {
     review: ReviewType;
@@ -64,13 +66,12 @@ export const Review: React.FC<ReviewProps> = ({ review }) => {
             </Stack>
 
             {/* Review Text */}
-            <Text
-                fontSize="md"
-                color={noteColor}
-                whiteSpace="pre-line"
-            >
-                {reviewNote}
-            </Text>
+            <Blockquote.Root variant="plain" colorPalette="teal" padding={0}>
+                <Blockquote.Content>
+                    <Blockquote.Icon display={'inline-flex'} marginInlineStart={'calc(0.25rem * -1)'} marginInlineEnd={'0.5rem'} color={'#948effff'}/>
+                    {reviewNote}
+                </Blockquote.Content>
+            </Blockquote.Root>
         </Flex>
     );
 };
@@ -78,8 +79,8 @@ export const Review: React.FC<ReviewProps> = ({ review }) => {
 const colorPalette = ["red", "blue", "green", "yellow", "purple", "orange"]
 
 const pickPalette = (name: string) => {
-  const index = name.charCodeAt(0) % colorPalette.length
-  return colorPalette[index]
+    const index = name.charCodeAt(0) % colorPalette.length
+    return colorPalette[index]
 }
 
 export default Review;

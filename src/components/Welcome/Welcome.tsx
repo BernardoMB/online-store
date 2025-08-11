@@ -66,14 +66,18 @@ const Welcome: React.FC = () => {
                             gap={'0.625rem'}
                             borderWidth={'0px'}
                             borderRadius={'0.125rem'}
-                            backgroundImage="url('/images/welcome_button.avif')" // Path to your AVIF or PNG file
-                            backgroundSize="100% 100%" // Stretch to fill width & height
-                            backgroundRepeat="no-repeat"
-                            backgroundPosition="center"
-                             _dark={{ boxShadow: '0px 0px 10px 0px rgba(240, 255, 253, 0.9)' }}
-                            _hover={{
-                                opacity: 0.9,
-                            }}
+                            _dark={{ boxShadow: '0px 0px 10px 0px rgba(240, 255, 253, 0.9)' }}
+                            
+                            // backgroundImage="url('/images/welcome_button.avif')" // Path to your AVIF or PNG file
+                            // backgroundSize="100% 100%" // Stretch to fill width & height
+                            // backgroundRepeat="no-repeat"
+                            // backgroundPosition="center"
+
+                            backgroundSize={'200% auto'}
+                            backgroundImage={'linear-gradient(120deg, #ee45ff, #45f3ffff, #f3ff45ff, #45f3ffff, #ee45ff)'}
+                            transition={'0.5s'}
+                            _hover={{backgroundPosition: 'right center'}}
+                            color={'black'}
                         >
                             Shop Products
                         </Button>

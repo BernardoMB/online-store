@@ -2,6 +2,7 @@ import type { FrequentAskedQuestion as FrequentAskedQuestionType } from "@/model
 import { FaqService } from "@/services/FaqService";
 import { Accordion, Box, Icon, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import Divider from "../Divider";
 
 const FAQs: React.FC = () => {
     const [faqs, setFaqs] = useState<FrequentAskedQuestionType[]>([]);
@@ -13,7 +14,8 @@ const FAQs: React.FC = () => {
 
     return (
         <>
-        <Box>
+        <Box paddingBlock={'3rem'}>
+            <Divider></Divider>
             <Accordion.Root multiple size={'lg'} variant={'enclosed'} border={0} borderRadius={'0rem'}>
                 {faqs.map((question: FrequentAskedQuestionType, index) => (
                     <Accordion.Item key={question.id} value={question.id.toString()}>
@@ -32,6 +34,7 @@ const FAQs: React.FC = () => {
                     </Accordion.Item>
                 ))}
             </Accordion.Root>
+            <Divider></Divider>
         </Box>
         </>
     );

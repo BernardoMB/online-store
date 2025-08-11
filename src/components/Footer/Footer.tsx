@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
   return (
     <>
       <Container position={'relative'} paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }} maxWidth={'80rem'} width={'100%'} marginInline={'auto'}>
-        <Box as='section' width="100%" borderInlineWidth={'1px'} paddingInline={'2rem'} paddingBlock={'4rem'}>
+        <Box as='section' width="100%" borderInlineWidth={'1px'} paddingInline={{ base: '1rem', sm: '1rem', md: '1.5rem', lg: '2rem' }} paddingBlock={{ base: '3rem', md: '4rem' }}>
           <Stack
             direction={{ base: "column", md: "row" }}
             gap={'4rem'}
@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
                     <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
                       color={bottomFontColor}>Regions</Link>
                   </Stack>
-                  </Stack>
+                </Stack>
               </Stack>
               <Stack gap={2}>
                 <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Solutions</Text>

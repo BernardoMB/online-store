@@ -15,7 +15,7 @@ import Crystals from "./Crystals/Crystals";
 
 const Home: React.FC = () => {
     const navigate = useNavigate();
-
+    
     const welcomeMessageBackgroundColor = useColorModeValue('white', '#222221');
     const welcomeMessageColor = useColorModeValue('gray.500', 'gray.200');
 

@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({
   const { colorMode } = useColorMode();
 
   return (
-    <>
+    <Box>
       {/* App Header */}
       <Box as="header" borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'}>
         <Container paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({
           </Box>
         </Container>
       </Box>
-    </>
+    </Box>
   );
 };
 

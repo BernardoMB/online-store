@@ -8,7 +8,7 @@ const HomePageSection = ({ children }: { children: ReactNode }) => {
             maxWidth={'80rem'} width='100%' 
             marginInline={'auto'}
         >
-            <Container paddingBlock={{base: '1rem', lg: '6rem'}}>
+            <Container paddingBlock={{base: '2rem', md: '6rem'}}>
                 {children}
                 <Box position={'absolute'} top={'0rem'} left={'0rem'} width={'100%'} pointerEvents={'none'} aria-hidden='true' role='presentation'>
                     {/* Left */}

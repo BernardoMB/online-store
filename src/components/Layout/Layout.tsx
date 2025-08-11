@@ -6,22 +6,26 @@ import "./Layout.css";
 import Header from "../Header/Header";
 import ThemeColorMetaTag from "../ThemeColorMetaTag";
 import Divider from "../Divider";
+import { Box } from "@chakra-ui/react";
 
 const Layout: React.FC = () => {
+  const [isStickyHeader, setIsStickyHeader] = useState(true);
   const [isHeaderExpanded, setIsHeaderExpanded] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="app-container">
       <ThemeColorMetaTag />
-      <Header
-        expanded={isHeaderExpanded}
-        toggleHeader={() => setIsHeaderExpanded((prev) => !prev)}
-        toggleSidebar={() => {
-          setIsSidebarOpen((prev) => !prev);
-        }}
-        isSidebarOpen={isSidebarOpen}
-      />
+      <Box position={isStickyHeader ? 'fixed' : 'unset'} zIndex={isStickyHeader ? 10 : 'unset'} width={isStickyHeader ? '100%' : 'unset'} top={isStickyHeader ? 0 : 'unset'} backgroundColor={isStickyHeader ? 'myAppBackground' : 'unset'}>
+        <Header
+          expanded={isHeaderExpanded}
+          toggleHeader={() => setIsHeaderExpanded((prev) => !prev)}
+          toggleSidebar={() => {
+            setIsSidebarOpen((prev) => !prev);
+          }}
+          isSidebarOpen={isSidebarOpen}
+        />
+      </Box>
 
       {isHeaderExpanded && (
         <>
@@ -36,10 +40,12 @@ const Layout: React.FC = () => {
           <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />
         )}
         <main className="routed-content">
+          <Box marginTop={ isStickyHeader ? { base: '60px', md: '94px' } : 'unset'}>
             <Outlet />
+          </Box>
         </main>
       </div>
-      
+
       <Divider />
       <Footer />
     </div>
