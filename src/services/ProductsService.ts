@@ -5,7 +5,7 @@ const products: Product[] = [
     productId: "1",
     productName: "Wireless Mouse",
     description: "Ergonomic and precise, with Bluetooth support.",
-    price: 29.99,
+    price: 30,
     images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
     isActive: true,
     featured: true
@@ -14,7 +14,7 @@ const products: Product[] = [
     productId: "2",
     productName: "Mechanical Keyboard",
     description: "Backlit keys, satisfying switches.",
-    price: 79.99,
+    price: 80,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
@@ -23,7 +23,7 @@ const products: Product[] = [
     productId: "3",
     productName: "Noise-Canceling Headphones",
     description: "Immersive sound and silence.",
-    price: 149.99,
+    price: 90,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
@@ -32,7 +32,7 @@ const products: Product[] = [
     productId: "4",
     productName: "Bluetooth Speaker",
     description: "Best quiality sound and portability.",
-    price: 149.99,
+    price: 90,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
@@ -41,7 +41,7 @@ const products: Product[] = [
     productId: "5",
     productName: "Orange Glow Stone Ring",
     description: "Stainless Steel, Glow Powder, Obsidian, Red Jasper, Carnelian",
-    price: 49.99,
+    price: 50,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
     featured: true

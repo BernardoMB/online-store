@@ -5,14 +5,7 @@ import "./ProductCard.css";
 import { Badge, Box, Button, Flex, Stack, Text, Image } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-
-type ProductCardProps = {
-    productId: string;
-    productName: string;
-    description: string;
-    price: number;
-    images: string[];
-};
+import type { ProductCardProps } from "@/model/ProductModel";
 
 const ProductCard: React.FC<ProductCardProps> = ({
     productId,

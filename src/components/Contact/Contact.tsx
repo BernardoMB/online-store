@@ -98,7 +98,7 @@ const Contact: React.FC = () => {
         <>
             <Grid gap={'4rem'} gridTemplateColumns={'repeat(2, minmax(0px, 1fr))'}>
                 <Stack gap={4}>
-                    <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} textTransform={'uppercase'} letterSpacing={'0.1em'} fontWeight="bold" color="teal.500" >Contact</Text>
+                    <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} textTransform={'uppercase'} letterSpacing={'0.1em'} fontWeight="bold" color="#948effff" >Contact</Text>
                     <Text fontSize={'1.875rem'} lineHeight={'2.375rem'} whiteSpace={'pre-line'} textWrap={'balance'} fontWeight={600}>We’d Love to Hear From You</Text>
                     <Text color={msgColor}>
                         Let us know your thoughts or if you have any questions
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
                                         lineHeight={'1.75rem'}
                                         paddingInline={'1rem'}
                                         color={inputColor}
-                                        focusRingColor={'teal.300'}
+                                        focusRingColor={'#948effff'}
                                         outlineOffset={'0px'}
                                         outlineStyle={'solid'}
                                         value={formData.firstName}
@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                                         lineHeight={'1.75rem'}
                                         paddingInline={'1rem'}
                                         color={inputColor}
-                                        focusRingColor={'teal.300'}
+                                        focusRingColor={'#948effff'}
                                         outlineOffset={'0px'}
                                         outlineStyle={'solid'}
                                         value={formData.lastName}
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                                     lineHeight={'1.75rem'}
                                     paddingInline={'1rem'}
                                     color={inputColor}
-                                    focusRingColor={'teal.300'}
+                                    focusRingColor={'#948effff'}
                                     outlineOffset={'0px'}
                                     outlineStyle={'solid'}
                                 />
@@ -175,7 +175,7 @@ const Contact: React.FC = () => {
                                     lineHeight={'1.75rem'}
                                     paddingInline={'1rem'}
                                     color={inputColor}
-                                    focusRingColor={'teal.300'}
+                                    focusRingColor={'#948effff'}
                                     outlineOffset={'0px'}
                                     outlineStyle={'solid'}
                                     value={formData.email}
@@ -192,7 +192,7 @@ const Contact: React.FC = () => {
                                     lineHeight={'1.75rem'}
                                     paddingInline={'1rem'}
                                     color={inputColor}
-                                    focusRingColor={'teal.300'}
+                                    focusRingColor={'#948effff'}
                                     outlineOffset={'0px'}
                                     outlineStyle={'solid'}
                                     value={formData.message}
@@ -200,12 +200,12 @@ const Contact: React.FC = () => {
                                 />
                                 <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} color={legendColor}>
                                     By submitting, you will receive a response from Hue & Hoot and agree to our{" "}
-                                    <Link href="/en/legal/privacy-policy" color="teal.500" textDecoration="underline">
+                                    <Link href="/en/legal/privacy-policy" color="#948effff" textDecoration="underline">
                                         Privacy Policy
                                     </Link>. You can unsubscribe at any time.
                                 </Text>
                             </Stack>
-                            <Button type="submit" colorScheme="teal" borderRadius={'0.125rem'} backgroundColor={'teal.300'} color={'white'} flexShrink={0}>Request</Button>
+                            <Button type="submit" colorScheme="teal" borderRadius={'0.125rem'} backgroundColor={'#948effff'} color={'white'} flexShrink={0}>Request</Button>
                         </Stack>
                     </form>
                 </Box>

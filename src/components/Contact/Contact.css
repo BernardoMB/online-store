@@ -2,12 +2,12 @@
   color: 'red';
 }
 .contact-input-light:focus-visible {
-  border: 1px solid #5eead4;
+  border: 1px solid #948effff;
 }
 
 .contact-input-dark::placeholder {
   color: #7c7b74;
 }
 .contact-input-dark:focus-visible {
-  border: 1px solid #5eead4;
+  border: 1px solid #948effff;
 }

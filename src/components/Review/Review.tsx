@@ -33,7 +33,6 @@ export const Review: React.FC<ReviewProps> = ({ review }) => {
             direction="column"
             gap={3}
             opacity={inactiveOpacity}
-            fontFamily="system-ui, sans-serif"
             lineHeight="1.6"
         >
             {/* Header: Avatar + Name + Date */}
@@ -68,10 +67,9 @@ export const Review: React.FC<ReviewProps> = ({ review }) => {
             <Text
                 fontSize="md"
                 color={noteColor}
-                fontStyle="italic"
                 whiteSpace="pre-line"
             >
-                “{reviewNote}”
+                {reviewNote}
             </Text>
         </Flex>
     );

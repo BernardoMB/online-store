@@ -7,3 +7,11 @@ export type Product = {
   isActive: boolean;
   featured: boolean;
 };
+
+export type ProductCardProps = {
+    productId: string;
+    productName: string;
+    description: string;
+    price: number;
+    images: string[];
+};

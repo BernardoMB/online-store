@@ -1,6 +1,6 @@
 import { AbsoluteCenter, Box, Button, Container, HStack, Text } from "@chakra-ui/react";
 import { useCartTotals } from "../../hooks/useCart";
-import { ColorModeButton, useColorModeValue } from "../ui/color-mode";
+import { ColorModeButton, useColorMode, useColorModeValue } from "../ui/color-mode";
 import './Header.css';
 import { CartIndicator } from "../CartIndicator";
 import { StoreLogo } from "../StoreLogo";
@@ -24,28 +24,30 @@ const Header: React.FC<HeaderProps> = ({
   const backgroundColor = useColorModeValue('white', '#222221');
   const logoColor = useColorModeValue('black', 'white');
 
+  const { colorMode } = useColorMode();
+
   return (
     <>
       {/* App Header */}
       <Box as="header" borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'}>
-        <Container paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}
+        <Container paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
           position={'relative'}
           maxWidth={'80rem'}
           width={'100%'}
           marginInline={'auto'}
         >
-          <Box width="100%" borderInlineWidth={'1px'} className="site-header" 
-            paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}
+          <Box width="100%" borderInlineWidth={'1px'} className="site-header"
+            paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
             backgroundColor={backgroundColor}
           >
             <div className="header-container">
               <div className="header-section left">
-                <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }} paddingInline={{base: '0.5rem', sm: '1rem'}}>
+                <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }} paddingInline={{ base: '0.5rem', sm: '1rem' }}>
                   {isSidebarOpen ? <div>&#10006;</div> : ("☰")}
                 </Button>
                 &emsp;
               </div>
-              <AbsoluteCenter marginLeft={{base: '-28px', sm: '0px'}}>
+              <AbsoluteCenter marginLeft={{ base: '-28px', sm: '0px' }}>
                 <div className="header-section center">
                   <StoreLogo color={logoColor} width="35" height="46" style={{ marginTop: "-5px" }} />
                   &ensp;
@@ -68,9 +70,9 @@ const Header: React.FC<HeaderProps> = ({
       </Box>
 
       {/* Navigation items */}
-      <Box borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'} display={{base:'none', md: 'block'}}>
-        <Container 
-          paddingInline={{base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem'}}
+      <Box borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'} display={{ base: 'none', md: 'block' }}>
+        <Container
+          paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
           position={'relative'}
           maxWidth={'80rem'}
           width={'100%'}
@@ -86,15 +88,27 @@ const Header: React.FC<HeaderProps> = ({
                     { to: "/about", label: "About Us" },
                     { to: "/checkout", label: "Checkout" },
                   ].map((link, index) =>
-                    <NavLink to={link.to} style={{ textDecoration: 'none' }} key={`sidebar-navlink-${index}`}>
+                    <NavLink to={link.to} style={{ textDecoration: 'none', position: 'relative' }} key={`sidebar-navlink-${index}`}>
                       {({ isActive }) => (
+                        <>
                         <Text fontWeight="medium"
-                          _hover={{ textDecoration: 'underline' }}
-                          color={(isActive ? (
-                            link.to == '/home' ? 'pink.300' :
-                              link.to == '/products' ? 'green.300' : 'orange.500') : 'unset')}
+                          _hover={{ opacity: 0.9 }}
                           whiteSpace={'nowrap'}
-                        >{link.label}</Text>
+                          _light={{color: isActive ? '#635bff' : 'black'}}
+                          _dark={{color: isActive ? '#948effff' : 'white'}}
+                        >
+                          {link.label}
+                        </Text>
+                        {/* {isActive && (
+                          <Box
+                            position="absolute"
+                            bottom={'-4px'}
+                            height="3px"
+                            width="100%"
+                            bg={'#635bff'}
+                          />
+                        )} */}
+                        </>
                       )}
                     </NavLink>
                   )}

@@ -1,10 +1,21 @@
-import { Container, Stack, Text, VStack } from '@chakra-ui/react';
+import { Box, Container, Flex, Grid, Stack, Text, VStack } from '@chakra-ui/react';
 import './InfiniteCarousel.css'
 import { useColorModeValue } from '../ui/color-mode';
 import Marquee from "react-fast-marquee";
+import { useEffect, useState } from 'react';
+import type { Product } from '@/model/ProductModel';
+import { ProductsService } from '@/services/ProductsService';
+import ProductCardSmall from '../ProductCardSmall/ProductCardSmall';
 
 const InfiniteCarousel: React.FC = () => {
     const patternImg = useColorModeValue('pattern_light.svg', 'pattern_dark.svg');
+
+    const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
+
+    useEffect(() => {
+        const featuredProducts = ProductsService.getFeaturedProducts();
+        setFeaturedProducts(featuredProducts);
+    }, []);
 
     return (
         <>
@@ -21,10 +32,10 @@ const InfiniteCarousel: React.FC = () => {
                 >
                     <VStack gap={'1rem'}>
                         <Text as='h2' fontSize={'1.125rem'} lineHeight={'1.75rem'} fontWeight={500}>Featured Products</Text>
-                        <Marquee style={{overflow: 'hidden'}} speed={20}>
+                        <Marquee style={{ overflow: 'hidden' }} speed={20}>
                             {/* <div className="slider">
                                 <div className="slide-track"> */}
-                                    <div className="slide">
+                            {/* <div className="slide">
                                         <img src="/images/ring1.png" alt="" />
                                     </div>
                                     <div className="slide">
@@ -65,8 +76,26 @@ const InfiniteCarousel: React.FC = () => {
                                     </div>
                                     <div className="slide">
                                         <img src="/images/ring1.png" alt="" />
-                                    </div>
-                                {/* </div>
+                                    </div> */}
+
+                            <Flex height={'100%'} alignItems={'stretch'} gap={6}>
+                                {featuredProducts.map((featuredProduct: Product, index) => (
+                                    <Box width={'16rem'} p="1" 
+                                        height={'--webkit-fill-available'} 
+                                        key={featuredProduct.productId + index}
+                                    >
+                                        <ProductCardSmall
+                                            productId={featuredProduct.productId}
+                                            productName={featuredProduct.productName}
+                                            description={featuredProduct.description}
+                                            price={featuredProduct.price}
+                                            images={featuredProduct.images} 
+                                        />
+                                    </Box>
+                                ))}
+                            </Flex>
+
+                            {/* </div>
                             </div> */}
                         </Marquee>
                     </VStack>

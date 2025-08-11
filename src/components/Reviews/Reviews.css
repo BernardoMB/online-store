@@ -19,7 +19,7 @@
 }
 
 .custom-swiper-pagination-bullet-light-active {
-    background-color: palevioletred;
+    background-color: #948effff;
     position: relative;
     z-index: 1;
 }
@@ -37,8 +37,8 @@
 }
 
 .custom-swiper-pagination-bullet-dark-active {
-    background-color: rgb(127, 238, 255);
-    box-shadow: 0px 0px 8px 3px rgba(25, 255, 255, 0.9);
+    background-color: #948effff;
+    box-shadow: 0px 0px 8px 3px rgba(148, 142, 255, 0.8);
     position: relative;
     z-index: 1;
 }
