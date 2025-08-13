@@ -24,7 +24,7 @@ const products: Product[] = [
     productName: "Noise-Canceling Headphones",
     description: "Immersive sound and silence.",
     price: 90,
-    images: ["/images/orange-ring-1.jpg"],
+    images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
     isActive: true,
     featured: false
   },
