@@ -1,3 +1,5 @@
+import type { BoxProps, StackProps } from "@chakra-ui/react";
+
 export type Product = {
   productId: string;
   productName: string;
@@ -8,7 +10,7 @@ export type Product = {
   featured: boolean;
 };
 
-export type ProductCardProps = {
+export type ProductCardProps = StackProps & {
     productId: string;
     productName: string;
     description: string;

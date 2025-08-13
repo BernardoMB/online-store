@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { ProductsService } from "../../services/ProductsService";
-import ProductCard from "../ProductCard/ProductCard";
-import "./Products.css"
 import type { Product } from "../../model/ProductModel";
-import { Box, Text } from "@chakra-ui/react";
-import ProductCardSmall from "../ProductCardSmall/ProductCardSmall";
+import { Grid, GridItem } from "@chakra-ui/react";
+import ClosedSection from "../ClosedSection";
+import ProductGridCard from "../ProductGridCard";
 
 const Products: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -15,23 +14,24 @@ const Products: React.FC = () => {
   }, []);
 
   return (
-    <div className="products-page">
-      <h2>🛍️ Our Products</h2>
-      <Text>From soft hues to bold hoots—browse what makes your style sing.</Text>
-      <div className="product-grid">
+    <ClosedSection background='unset' p="0">
+      <Grid 
+        templateRows="repeat(5, 1fr)"
+        templateColumns="repeat(5, 1fr)" 
+      >
         {products.map((product: Product) => (
-          <Box width={'220px'} height={'220px'} key={product.productId}>
-              <ProductCardSmall
+          <GridItem key={product.productId} rowSpan={1} colSpan={1} borderWidth={'1px'}>
+              <ProductGridCard
                 productId={product.productId}
                 productName={product.productName}
                 description={product.description}
                 price={product.price}
                 images={product.images}
               />
-          </Box>
+          </GridItem>
         ))}
-      </div>
-    </div>
+      </Grid>
+    </ClosedSection>
   );
 };
 

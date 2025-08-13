@@ -90,7 +90,6 @@ const Header: React.FC<HeaderProps> = ({
                   ].map((link, index) =>
                     <NavLink to={link.to} style={{ textDecoration: 'none', position: 'relative' }} key={`sidebar-navlink-${index}`}>
                       {({ isActive }) => (
-                        <>
                         <Text fontWeight="medium"
                           _hover={{ opacity: 0.9 }}
                           whiteSpace={'nowrap'}
@@ -99,16 +98,6 @@ const Header: React.FC<HeaderProps> = ({
                         >
                           {link.label}
                         </Text>
-                        {/* {isActive && (
-                          <Box
-                            position="absolute"
-                            bottom={'-4px'}
-                            height="3px"
-                            width="100%"
-                            bg={'#635bff'}
-                          />
-                        )} */}
-                        </>
                       )}
                     </NavLink>
                   )}

@@ -68,7 +68,10 @@ export const Review: React.FC<ReviewProps> = ({ review }) => {
             {/* Review Text */}
             <Blockquote.Root variant="plain" colorPalette="teal" padding={0}>
                 <Blockquote.Content>
-                    <Blockquote.Icon display={'inline-flex'} marginInlineStart={'calc(0.25rem * -1)'} marginInlineEnd={'0.5rem'} color={'#948effff'}/>
+                    <Blockquote.Icon display={'inline-flex'} 
+                        marginInlineEnd={'0.5rem'} 
+                        color={'#948effff'}
+                    />
                     {reviewNote}
                 </Blockquote.Content>
             </Blockquote.Root>

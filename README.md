@@ -59,6 +59,10 @@ export default tseslint.config({
 1. Start the Dev Server with Host Option
 ```bash
 npm run dev -- --host
+
+// or
+
+npx vite --host
 ```
 This makes your app accessible over your local network.
 

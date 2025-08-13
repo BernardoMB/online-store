@@ -3,6 +3,7 @@ import { FaqService } from "@/services/FaqService";
 import { Accordion, Box, Icon, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Divider from "../Divider";
+import { useColorModeValue } from "../ui/color-mode";
 
 const FAQs: React.FC = () => {
     const [faqs, setFaqs] = useState<FrequentAskedQuestionType[]>([]);
@@ -11,6 +12,8 @@ const FAQs: React.FC = () => {
         const allFaqs = FaqService.getAllQuestions();
         setFaqs(allFaqs);
     }, []);
+
+    const answerColor = useColorModeValue('gray.700', '#c0beb9');
 
     return (
         <>
@@ -28,7 +31,7 @@ const FAQs: React.FC = () => {
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>
                             <Accordion.ItemBody>
-                                <Text as='p'>{question.answer}</Text>
+                                <Text as='p' color={answerColor}>{question.answer}</Text>
                             </Accordion.ItemBody>
                         </Accordion.ItemContent>
                     </Accordion.Item>

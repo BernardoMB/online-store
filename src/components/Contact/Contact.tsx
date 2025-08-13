@@ -56,21 +56,25 @@ const Contact: React.FC = () => {
         }
 
         try {
-            // Replace with your actual endpoint
-            const response = await fetch("https://your-api.com/contact", {
+            // TODO: Move url to configuration
+            const response = await fetch("https://zkys57t35d.execute-api.us-west-2.amazonaws.com/default/ContactMessage", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    ...formData,
-                    phone,
+                    "SenderFirstName": formData.firstName,
+                    "SenderLastName": formData.lastName,
+                    "SenderPhoneNumber": phone,
+                    "SenderEmailAddress": formData.email,
+                    "SenderMessage": formData.message
                 }),
             });
 
-            if (!response.ok) throw new Error("Request failed");
+            if (!response.ok) throw new Error("Request failed. Could not send message to Hue & Hoot");
 
             alert("Your message has been sent!");
+            
             // Optionally reset form
             setFormData({
                 firstName: "",
