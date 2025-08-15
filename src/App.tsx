@@ -21,7 +21,10 @@ const App: React.FC = () => {
 
     loadCartFromIndexedDB()
       .then(items => {
-        items.forEach(item => cartService.addItem(item));
+        items.forEach(item => {
+          alert('Adding item from IndexedDB: ' + item.productId);
+          cartService.addItem(item);
+        });
       })
       .catch(err => console.error("Cart load error:", err));
   }, []);

@@ -24,7 +24,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
             description,
             price,
             quantity: 1,
-            imageUrl: images[0]
+            imageUrl: images[0],
+            size: 7 // TODO: Make this dynamic
         });
         const newQuantity = cartService.getQuantity(productId);
         setQuantity(newQuantity);
