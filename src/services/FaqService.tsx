@@ -9,6 +9,8 @@ import { MdOutlineMailLock } from "react-icons/md";
 import { MdMoreTime } from "react-icons/md";
 import { MdTrackChanges } from "react-icons/md";
 import { WiStars } from "react-icons/wi";
+import { RiMailLockFill } from "react-icons/ri";
+import { BiSolidTimeFive } from "react-icons/bi";
 
 export const questions: FrequentAskedQuestion[] = [
   {
@@ -62,7 +64,7 @@ export const questions: FrequentAskedQuestion[] = [
     answer:
     "Nope. We don’t believe in inbox spam. We never use your email for marketing purposes, and we don’t share your data with other companies. Your trust matters more than a newsletter.",
     isActive: true,
-    icon: <MdOutlineMailLock />
+    icon: <RiMailLockFill />
 },
   {
     id: 8,
@@ -70,7 +72,7 @@ export const questions: FrequentAskedQuestion[] = [
     answer:
     "We focus on quality and affordability. That means we handcraft each ring to order, using carefully sourced materials — no shortcuts, no mass production.",
     isActive: true,
-    icon: <MdMoreTime />
+    icon: <BiSolidTimeFive   />
   },
   {
     id: 9,

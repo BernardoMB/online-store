@@ -45,6 +45,7 @@ const Checkout: React.FC = () => {
     return () => {
       cartService.addItem = originalAdd;
       cartService.removeItem = originalRemove;
+      cartService.removeItemAll = originalRemoveAll;
     };
   }, []);
 
@@ -68,7 +69,7 @@ const Checkout: React.FC = () => {
         <>
           <ul>
             {items.map((item) => (
-              <li key={item.productId}>
+              <li key={`${item.productId};${item.size}`}>
                 <strong>{item.productName}</strong> — ${item.price.toFixed(2)} × {item.quantity}
                 <span style={{ marginLeft: "1rem" }}>
                   = ${(item.price * item.quantity).toFixed(2)}
@@ -76,14 +77,7 @@ const Checkout: React.FC = () => {
               </li>
             ))}
             {items.map((product: CartItem) => (
-              <ProductCard
-                key={product.productId}
-                productId={product.productId}
-                productName={product.productName}
-                description={product.description}
-                price={product.price}
-                images={product.imageUrl ? [product.imageUrl] : []}
-              />
+              JSON.stringify(product)
             ))}
           </ul>
 

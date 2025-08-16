@@ -1,11 +1,15 @@
 import { ringSizes, type ProductCardProps } from "@/model/ProductModel";
-import { Box, Stack, Text, Button, type BoxProps, type StackProps, createListCollection, Select, Portal, Spacer } from "@chakra-ui/react";
+import { Box, Stack, Text, Button, type BoxProps, type StackProps, createListCollection, Select, Portal, Spacer, Badge, Flex, Icon } from "@chakra-ui/react";
 import "swiper/css"
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import ProductGridCardSwiper from "./ProductGridCardSwiper";
 import { useEffect, useState } from "react";
 import { cartService } from "@/services/CartService";
+import { PiShoppingCartSimpleDuotone } from "react-icons/pi";
+import { useColorModeValue } from "../ui/color-mode";
+import { useNavigate } from "react-router-dom";
+import { IoMdStar } from "react-icons/io";
 
 const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
     productId,
@@ -13,17 +17,12 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
     description,
     price,
     images,
+    rating,
     ...props
 }) => {
-    const getInitialQuantity = () => {
-        const total = cartService.getQuantity(productId);
-        if (productId === '1') {
-            console.log('Initial quantity', total);
-        }
-        return total;
-    };
+    const navigate = useNavigate();
     const [selectedSize, setSelectedSize] = useState<string | undefined>();
-    const [quantity, setQuantity] = useState(getInitialQuantity());
+    const [quantity, setQuantity] = useState(cartService.getQuantity(productId));
 
     const handleAddToCart = () => {
         if (!selectedSize) {
@@ -45,28 +44,68 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
     };
 
     useEffect(() => {
-        const quantity = cartService.getQuantity(productId);
-        setQuantity(quantity);
-      }, []);
+        const updateQuantity = () => setQuantity(cartService.getQuantity(productId));
+        cartService.subscribe(updateQuantity);
+        updateQuantity();
+        return () => {
+            // Optionally remove listener if you implement unsubscribe
+        };
+    }, [productId]);
+
+    const badgeBackgroundColor = useColorModeValue('#e5e4ff', '#252264ff');
+    const badgeColor = useColorModeValue('#7068ff', '#dedcfbff');
 
     return (
-        <>
-            <ProductGridCardSwiper productName={productName} images={images} {...props}></ProductGridCardSwiper>
+        <Box display={'flex'}
+            flexDirection={'column'}
+            height={'100%'}
+            cursor={'pointer'}
+            onClick={() => navigate(`/product/${productId}`)}
+            position={'relative'}
+            {...props}
+        >
+            <Flex justifyContent={'end'}
+                alignItems={'anchor-center'}
+                position="absolute"
+                zIndex={2}
+                left="0.5rem"
+                top="0.3rem"
+            >
+                <Icon
+                    as={IoMdStar}
+                    boxSize={5}
+                    color={'yellow.400'}
+                />
+                &ensp;
+                <Text>{rating}</Text>
+            </Flex>
+            {quantity > 0 && (
+                <Badge
+                    backgroundColor={badgeBackgroundColor}
+                    color={badgeColor}
+                    position="absolute"
+                    zIndex={2}
+                    right="0.5rem"
+                    top="0.5rem"
+                >
+                    <PiShoppingCartSimpleDuotone />
+                    {quantity}
+                </Badge>
+            )}
+            <ProductGridCardSwiper productName={productName} images={images} />
             <Stack gap={'1rem'} flex={1} justifyContent={'space-between'} p="0.725rem">
                 <Stack direction={'row'} justifyContent={'space-between'} alignItems={'start'} gap={'1rem'}>
                     <Stack gap={'0.5'}>
                         <Text as='h1' fontSize={'1.125rem'} fontWeight={600} lineHeight={'1.225rem'} lineClamp={2}>{productName}</Text>
                         <Text as='h1' fontSize={'0.825rem'} fontWeight={400} lineHeight={'1.125rem'} lineClamp={2} color={'myAppTextColor'}>{description}</Text>
                     </Stack>
-                    <Stack gap={'0.5'}>
-                        <Box>
-                            <Text>${price}</Text>
-                        </Box>
-                        {quantity}
-                    </Stack>
+                    <Box>
+                        <Text>${price}</Text>
+                    </Box>
                 </Stack>
                 <Stack gap={'0.725rem'}>
                     <Select.Root
+                        onClick={(e) => e.stopPropagation()}
                         collection={ringSizes}
                         size="sm"
                         multiple={false}
@@ -95,20 +134,21 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
                             </Select.Positioner>
                         </Portal>
                     </Select.Root>
-                    {/* 🛒 Add to Cart Button */}
                     <Button
                         variant={'outline'}
                         borderRadius="0.25rem"
-                        //backgroundColor="#948effff"
                         flexShrink={0}
                         disabled={!selectedSize}
-                        onClick={handleAddToCart}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleAddToCart();
+                        }}
                     >
                         Add to cart
                     </Button>
                 </Stack>
             </Stack>
-        </>
+        </Box>
     );
 };
 

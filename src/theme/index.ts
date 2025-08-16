@@ -48,6 +48,12 @@ const config = defineConfig({
             _dark: "linear-gradient(#191918, #2a2a28)",
           },
         },
+        myAccentColor: {
+          value: {
+            _light: "#635bff",
+            _dark: "#948eff",
+          },
+        },
       },
     },
   },

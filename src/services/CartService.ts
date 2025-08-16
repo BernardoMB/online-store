@@ -3,16 +3,27 @@ import { saveCartToIndexedDB } from "./DatabaseService";
 
 class CartService {
   private items: Map<string, CartItem> = new Map();
+  private listeners: (() => void)[] = [];
+
+  subscribe(listener: () => void) {
+    this.listeners.push(listener);
+  }
+  
+  notify() {
+    this.listeners.forEach(fn => fn());
+  }
 
   // Add item or update quantity
   addItem(item: CartItem): void {
-    const existing = this.items.get(item.productId);
+    const key = `id:${item.productId};size:${item.size}`;
+    const existing = this.items.get(key);
     if (existing) {
       existing.quantity += item.quantity;
     } else {
-      this.items.set(item.productId, { ...item });
+      this.items.set(key, { ...item });
     }
     saveCartToIndexedDB(this.getItems());
+    this.notify();
   }
 
   // Remove item once by productId

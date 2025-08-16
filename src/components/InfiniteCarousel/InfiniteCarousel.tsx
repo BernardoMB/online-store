@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 import { useEffect, useState } from 'react';
 import type { Product } from '@/model/ProductModel';
 import { ProductsService } from '@/services/ProductsService';
-import ProductCardSmall from '../ProductCardSmall/ProductCardSmall';
+import ProductGridCard from '../ProductGridCard/ProductGridCard';
 
 const InfiniteCarousel: React.FC = () => {
     const patternImg = useColorModeValue('pattern_light.svg', 'pattern_dark.svg');
@@ -16,6 +16,9 @@ const InfiniteCarousel: React.FC = () => {
         const featuredProducts = ProductsService.getFeaturedProducts();
         setFeaturedProducts(featuredProducts);
     }, []);
+
+    const cardBackgroundColor = useColorModeValue('white', '#191918');
+    const textColor = useColorModeValue('gray.500', 'gray.200');
 
     return (
         <>
@@ -78,18 +81,23 @@ const InfiniteCarousel: React.FC = () => {
                                         <img src="/images/ring1.png" alt="" />
                                     </div> */}
 
-                            <Flex height={'100%'} alignItems={'stretch'} gap={6}>
+                            <Flex height={'100%'} alignItems={'stretch'}>
                                 {featuredProducts.map((featuredProduct: Product, index) => (
-                                    <Box width={'16rem'} p="1" 
+                                    <Box width={'16rem'}
                                         height={'--webkit-fill-available'} 
                                         key={featuredProduct.productId + index}
+                                        borderWidth={'1px'}
+                                        color={textColor}
+                                        marginRight={'1.5rem'}
                                     >
-                                        <ProductCardSmall
+                                        <ProductGridCard
                                             productId={featuredProduct.productId}
                                             productName={featuredProduct.productName}
                                             description={featuredProduct.description}
                                             price={featuredProduct.price}
-                                            images={featuredProduct.images} 
+                                            images={featuredProduct.images}
+                                            rating={featuredProduct.rating}
+                                            backgroundColor={cardBackgroundColor}
                                         />
                                     </Box>
                                 ))}

@@ -26,7 +26,7 @@ export default function Reviews() {
   return (
       <Swiper className='custom-swiper'
         modules={[Navigation, Pagination, Autoplay]}
-        autoplay={{ delay: 5000 * 1000, disableOnInteraction: true, pauseOnMouseEnter: true }}
+        autoplay={{ delay: 5 * 1000 , disableOnInteraction: true, pauseOnMouseEnter: true }}
         pagination={{ clickable: true, bulletClass: customPaginationBulletClass, bulletActiveClass: customPaginationBulletActiveClass }}
         loop
         spaceBetween={30}

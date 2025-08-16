@@ -40,7 +40,9 @@ const Layout: React.FC = () => {
           <div className="sidebar-backdrop" onClick={() => setIsSidebarOpen(false)} />
         )}
         <main className="routed-content">
-          <Box marginTop={ isStickyHeader ? { base: '60px', md: '94px' } : 'unset'}>
+          <Box marginTop={ isStickyHeader ? { base: '60px', md: '94px' } : 'unset'}
+          minHeight={'calc(100vh - 94px - 350px - 55px)'}
+          >
             <Outlet />
           </Box>
         </main>

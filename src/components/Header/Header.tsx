@@ -26,6 +26,8 @@ const Header: React.FC<HeaderProps> = ({
 
   const { colorMode } = useColorMode();
 
+  const accentColor = useColorModeValue('accent', 'accent');
+
   return (
     <Box>
       {/* App Header */}
@@ -93,8 +95,7 @@ const Header: React.FC<HeaderProps> = ({
                         <Text fontWeight="medium"
                           _hover={{ opacity: 0.9 }}
                           whiteSpace={'nowrap'}
-                          _light={{color: isActive ? '#635bff' : 'black'}}
-                          _dark={{color: isActive ? '#948effff' : 'white'}}
+                          color={ isActive ? 'myAccentColor' : 'inherit'}
                         >
                           {link.label}
                         </Text>

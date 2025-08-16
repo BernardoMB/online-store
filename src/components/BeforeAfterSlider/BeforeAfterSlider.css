@@ -30,6 +30,5 @@
   height: 100%;
   background: gainsboro;
   z-index: 3;
-
-    box-shadow: 0px 0px 15px 5px rgba(45,255,196,0.9);
+  box-shadow: 0px 0px 15px 5px rgba(45, 255, 196, 0.9);
 }

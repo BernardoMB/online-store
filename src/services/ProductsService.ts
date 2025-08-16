@@ -8,7 +8,8 @@ const products: Product[] = [
     price: 30,
     images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
     isActive: true,
-    featured: true
+    featured: true,
+    rating: 4.5
   },
   {
     productId: "2",
@@ -17,7 +18,8 @@ const products: Product[] = [
     price: 80,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
-    featured: false
+    featured: false,
+    rating: 3.9
   },
   {
     productId: "3",
@@ -26,7 +28,8 @@ const products: Product[] = [
     price: 90,
     images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
     isActive: true,
-    featured: false
+    featured: false,
+    rating: 4.8
   },
   {
     productId: "4",
@@ -35,7 +38,8 @@ const products: Product[] = [
     price: 90,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
-    featured: false
+    featured: false,
+    rating: 5
   },
   {
     productId: "5",
@@ -44,7 +48,8 @@ const products: Product[] = [
     price: 50,
     images: ["/images/orange-ring-1.jpg"],
     isActive: true,
-    featured: true
+    featured: true,
+    rating: 4.7
   }
 ];
 

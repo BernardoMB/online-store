@@ -23,10 +23,16 @@ const FAQs: React.FC = () => {
                 {faqs.map((question: FrequentAskedQuestionType, index) => (
                     <Accordion.Item key={question.id} value={question.id.toString()}>
                         <Accordion.ItemTrigger cursor={'pointer'}>
-                            <Icon fontSize="lg" color="fg.subtle">
+                            <Icon fontSize="lg">
                                 {question.icon}
                             </Icon>
-                            <Box flex={'1'}><Text as='h1'>{question.question}</Text></Box>
+                            <Box flex={'1'}>
+                                <Text as='h1'
+                                    color={'myAppTextColor'}
+                                >
+                                    {question.question}
+                                </Text>
+                            </Box>
                             <Accordion.ItemIndicator />
                         </Accordion.ItemTrigger>
                         <Accordion.ItemContent>

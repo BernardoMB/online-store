@@ -63,7 +63,12 @@ const ProductGridCardSwiper: React.FC<{ productName: string, images: string[] } 
                 </Swiper>
             </Flex>
             <Flex>
-                <Button onClick={() => (swiperRef.current as any).slidePrev()} variant={'ghost'}>
+                <Button onClick={(e) => {
+                    e.stopPropagation();
+                    return (swiperRef.current as any).slidePrev()
+                }}
+                    variant={'ghost'}
+                >
                     <BsChevronLeft />
                 </Button>
                 {/* <button ref={prevRef}>Prev</button> */}
@@ -72,7 +77,12 @@ const ProductGridCardSwiper: React.FC<{ productName: string, images: string[] } 
                     {/* {(swiperRef.current as any)?.realIndex + 1 + ' of ' + images.length} */}
                 </Box>
                 {/* <button ref={nextRef}>Next</button> */}
-                <Button onClick={() => (swiperRef.current as any).slideNext()} variant={'ghost'}>
+                <Button onClick={(e) => {
+                    e.stopPropagation();
+                    return (swiperRef.current as any).slideNext()
+                }}
+                    variant={'ghost'}
+                >
                     <BsChevronRight />
                 </Button>
             </Flex>

@@ -8,6 +8,7 @@ export type Product = {
   images: string[];
   isActive: boolean;
   featured: boolean;
+  rating: number;
 };
 
 export type ProductCardProps = StackProps & {
@@ -16,6 +17,7 @@ export type ProductCardProps = StackProps & {
     description: string;
     price: number;
     images: string[];
+    rating: number;
 };
 
 export const ringSizes = createListCollection({

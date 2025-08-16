@@ -9,7 +9,7 @@ export async function openCartDB(): Promise<IDBDatabase> {
     request.onupgradeneeded = function (event) {
       const db = (event.target as IDBOpenDBRequest).result;
       if (!db.objectStoreNames.contains("Cart")) {
-        db.createObjectStore("Cart", { keyPath: "productId" });
+        db.createObjectStore("Cart", { keyPath: ["productId", "size"] });
       }
     };
 
