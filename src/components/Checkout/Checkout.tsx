@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { cartService } from "../../services/CartService";
 import "./Checkout.css";
 import CheckoutButton from "../CheckoutButton/CheckoutButton";
-import ProductCard from "../ProductCard/ProductCard";
 import type { CartItem } from "../../model/CartModel";
 import { Text } from "@chakra-ui/react";
+import HomePageSection from "../HomePageSection/HomePageSection";
 
 const Checkout: React.FC = () => {
   const [items, setItems] = useState(cartService.getItems());
@@ -59,47 +59,49 @@ const Checkout: React.FC = () => {
   };
   
   return (
-    <div className="checkout-page">
-      <h2>🧾 Checkout</h2>
-      <Text>Ready to bring home something hoot-worthy?</Text>
+    <HomePageSection>
+      <div className="checkout-page">
+        <h2>🧾 Checkout</h2>
+        <Text>Ready to bring home something hoot-worthy?</Text>
 
-      {items.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <>
-          <ul>
-            {items.map((item) => (
-              <li key={`${item.productId};${item.size}`}>
-                <strong>{item.productName}</strong> — ${item.price.toFixed(2)} × {item.quantity}
-                <span style={{ marginLeft: "1rem" }}>
-                  = ${(item.price * item.quantity).toFixed(2)}
-                </span>
-              </li>
-            ))}
-            {items.map((product: CartItem) => (
-              JSON.stringify(product)
-            ))}
-          </ul>
+        {items.length === 0 ? (
+          <p>Your cart is empty.</p>
+        ) : (
+          <>
+            <ul>
+              {items.map((item) => (
+                <li key={`${item.productId};${item.size}`}>
+                  <strong>{item.productName}</strong> — ${item.price.toFixed(2)} × {item.quantity}
+                  <span style={{ marginLeft: "1rem" }}>
+                    = ${(item.price * item.quantity).toFixed(2)}
+                  </span>
+                </li>
+              ))}
+              {items.map((product: CartItem) => (
+                JSON.stringify(product)
+              ))}
+            </ul>
 
-          <form className="shipping-form">
-            <input type="text" placeholder="Full Name" value={shipping.name}
-              onChange={(e) => updateShipping("name", e.target.value)} required />
-            <input type="text" placeholder="Street Address" value={shipping.address}
-              onChange={(e) => updateShipping("address", e.target.value)} required />
-            <input type="text" placeholder="City" value={shipping.city}
-              onChange={(e) => updateShipping("city", e.target.value)} required />
-            <input type="text" placeholder="State" value={shipping.state}
-              onChange={(e) => updateShipping("state", e.target.value)} required />
-            <input type="text" placeholder="ZIP Code" value={shipping.zip}
-              onChange={(e) => updateShipping("zip", e.target.value)} required />
-          </form>
+            <form className="shipping-form">
+              <input type="text" placeholder="Full Name" value={shipping.name}
+                onChange={(e) => updateShipping("name", e.target.value)} required />
+              <input type="text" placeholder="Street Address" value={shipping.address}
+                onChange={(e) => updateShipping("address", e.target.value)} required />
+              <input type="text" placeholder="City" value={shipping.city}
+                onChange={(e) => updateShipping("city", e.target.value)} required />
+              <input type="text" placeholder="State" value={shipping.state}
+                onChange={(e) => updateShipping("state", e.target.value)} required />
+              <input type="text" placeholder="ZIP Code" value={shipping.zip}
+                onChange={(e) => updateShipping("zip", e.target.value)} required />
+            </form>
 
-          <h3>Total: ${total.toFixed(2)}</h3>
-          <CheckoutButton disabled={!formValid} shipping={shipping} />
-        </>
-      )}
+            <h3>Total: ${total.toFixed(2)}</h3>
+            <CheckoutButton disabled={!formValid} shipping={shipping} />
+          </>
+        )}
 
-    </div>
+      </div>
+    </HomePageSection>
   );
 };
 

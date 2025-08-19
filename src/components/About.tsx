@@ -88,7 +88,7 @@ const About: React.FC = () => {
                             Welcome to Hue and Hoot, a small but spirited shop nestled in Hershey, Pennsylvania, where handcrafted glow rings come to life with quiet magic and intention.
                         </Text>
                         <Text as="p">
-                            I’m Bernardo Mondragon, the heart behind this glowing venture. What began as a humble idea to support my family has blossomed into a creative sanctuary—each ring a luminous piece of wearable art, shaped by hand and guided by care.
+                            I’m Bernardo Mondragon, the heart behind this glowing venture. What began as a hobby and a humble idea to support my family has blossomed into a creative sanctuary—each ring a luminous piece of wearable art, shaped by hand and guided by care.
                         </Text>
                         <Text as="p">
                             Inspired by my lifelong fascination with owls—symbols of wisdom, mystery, and quiet strength—Hue and Hoot reflects a blend of radiant color and soulful design. Every item in the shop is made in-house, crafted slowly and deliberately, with an eye for detail and a touch of enchantment.

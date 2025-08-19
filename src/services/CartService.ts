@@ -27,15 +27,16 @@ class CartService {
   }
 
   // Remove item once by productId
-  removeItem(productId: string): void {
-    const existing = this.items.get(productId);
+  removeItem(productId: string, size: number): void {
+    const key = `id:${productId};size:${size}`;
+    const existing = this.items.get(key);
     if (existing) {
       existing.quantity -= 1;
     } else {
       alert('Error: the item is not in the cart')
     }
     if (existing?.quantity == 0) {
-      this.items.delete(productId);
+      this.items.delete(key);
     }
     saveCartToIndexedDB(this.getItems());
   }
@@ -75,9 +76,21 @@ class CartService {
     return Array.from(this.items.values());
   }
 
-  // Get item quantity
-  getQuantity(productId: string): number {
-    return this.items.get(productId)?.quantity || 0;
+  // Get item quantity by product ID 
+  getQuantityByProductId(productId: string): number {
+    let count = 0;
+    this.items.forEach((item) => {
+      if (item.productId === productId) {
+        count += item.quantity;
+      }
+    });
+    return count;
+  }
+  
+  // Get item quantity by product ID and size
+  getQuantity(productId: string, size: number): number {
+    const key = `id:${productId};size:${size}`;
+    return this.items.get(key)?.quantity || 0;
   }
 }
 

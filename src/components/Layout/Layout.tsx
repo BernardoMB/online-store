@@ -16,7 +16,13 @@ const Layout: React.FC = () => {
   return (
     <div className="app-container">
       <ThemeColorMetaTag />
-      <Box position={isStickyHeader ? 'fixed' : 'unset'} zIndex={isStickyHeader ? 10 : 'unset'} width={isStickyHeader ? '100%' : 'unset'} top={isStickyHeader ? 0 : 'unset'} backgroundColor={isStickyHeader ? 'myAppBackground' : 'unset'}>
+      <Box 
+        position={isStickyHeader ? 'fixed' : 'unset'} 
+        zIndex={isStickyHeader ? 10 : 'unset'} 
+        width={isStickyHeader ? '100%' : 'unset'} 
+        top={isStickyHeader ? 0 : 'unset'} 
+        //backgroundColor={isStickyHeader ? 'myAppBackground' : 'unset'}
+      >
         <Header
           expanded={isHeaderExpanded}
           toggleHeader={() => setIsHeaderExpanded((prev) => !prev)}

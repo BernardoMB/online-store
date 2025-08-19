@@ -22,7 +22,7 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
 }) => {
     const navigate = useNavigate();
     const [selectedSize, setSelectedSize] = useState<string | undefined>();
-    const [quantity, setQuantity] = useState(cartService.getQuantity(productId));
+    const [quantity, setQuantity] = useState(cartService.getQuantityByProductId(productId));
 
     const handleAddToCart = () => {
         if (!selectedSize) {
@@ -38,13 +38,13 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
             imageUrl: images[0],
             size: Number(selectedSize)
         });
-        const newQuantity = cartService.getQuantity(productId);
+        const newQuantity = cartService.getQuantityByProductId(productId);
         console.log('New quantity', newQuantity);
         setQuantity(newQuantity);
     };
 
     useEffect(() => {
-        const updateQuantity = () => setQuantity(cartService.getQuantity(productId));
+        const updateQuantity = () => setQuantity(cartService.getQuantityByProductId(productId));
         cartService.subscribe(updateQuantity);
         updateQuantity();
         return () => {

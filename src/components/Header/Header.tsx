@@ -20,18 +20,19 @@ const Header: React.FC<HeaderProps> = ({
   isSidebarOpen,
 }) => {
   const { price, count } = useCartTotals();
-
   const backgroundColor = useColorModeValue('white', '#222221');
   const logoColor = useColorModeValue('black', 'white');
-
   const { colorMode } = useColorMode();
-
   const accentColor = useColorModeValue('accent', 'accent');
 
   return (
     <Box>
       {/* App Header */}
-      <Box as="header" borderBottomWidth={'1px'} borderColor={'myAppGlobalBorderColor'}>
+      <Box as="header" 
+        borderBottomWidth={'1px'} 
+        borderColor={'myAppGlobalBorderColor'}
+        position={'relative'}
+      >
         <Container paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
           position={'relative'}
           maxWidth={'80rem'}
@@ -42,6 +43,16 @@ const Header: React.FC<HeaderProps> = ({
             paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
             backgroundColor={backgroundColor}
           >
+            <Box
+              position={'absolute'}
+              width={{ base: 'calc(100% - 1rem)', sm: 'calc(100% - 2rem)', md: 'calc(100% - 3rem)', lg: 'calc(100% - 4rem)' }}
+              height={'3px'}
+              top={'59px'}
+              zIndex={-1}
+              left={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
+              backgroundColor={'myAppGlobalBorderColor'}
+            >
+            </Box>
             <div className="header-container">
               <div className="header-section left">
                 <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }} paddingInline={{ base: '0.5rem', sm: '1rem' }}>
