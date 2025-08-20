@@ -102,7 +102,7 @@ const About: React.FC = () => {
             <Divider></Divider>
             <HomePageSection>
                 <Stack gap={8}>
-                    <Stack gap={8}>
+                    <Stack gap={4}>
                         <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} textTransform={'uppercase'} letterSpacing={'0.1em'} fontWeight="bold" color="myAccentColor" >Our Team</Text>
                         <Text fontSize={'1.875rem'} lineHeight={'2.375rem'} whiteSpace={'pre-line'} textWrap={'balance'} fontWeight={600}>Meet The One Man Army</Text>
                         <Text color={msgColor}>

@@ -6,7 +6,7 @@ const config = defineConfig({
       margin: 0,
       padding: 0,
       backgroundColor: "myAppBackground",
-      fontFamily: `Outfit,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'`, 
+      fontFamily: `Outfit,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol", ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'`,
     },
   },
   theme: {
@@ -53,6 +53,12 @@ const config = defineConfig({
             _light: "#635bff",
             _dark: "#948eff",
           },
+        },
+        myErrorColor: {
+          value: {
+            _light: '{colors.red.500}',
+            _dark: '{colors.red.300}',
+          }
         },
       },
     },

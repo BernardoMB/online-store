@@ -1,3 +1,7 @@
+# Ecommerce
+
+This application is the minimal implementation for an online store.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -94,3 +98,10 @@ http://192.168.1.42:5173
 The UI implements Chakra UI. The library was installed following the [Chakra UI tutorial](https://www.youtube.com/watch?v=WJIWd7-aZQ0). Review commits, since the documentation is outdated.
 
 ### Swiper JS 
+Review commits for setup since several workarounds had to be implemented
+
+# Back-end
+
+This application's back-end consists of two AWS Lambda functions:
+1. Send message from Contact form (.NET 9)
+2. Create Stripe checkout session (Node JS)

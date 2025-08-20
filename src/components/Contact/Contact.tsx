@@ -107,7 +107,11 @@ const Contact: React.FC = () => {
                     Let us know your thoughts or if you have any questions
                 </Text>
             </Stack>
-            <Box p={6} borderWidth="1px" backgroundColor={backgroundColor} borderColor={'myAppGlobalBorderColor'}>
+            <Box p={6} 
+                borderWidth="1px" 
+                backgroundColor={backgroundColor} 
+                borderColor={'myAppGlobalBorderColor'}
+            >
                 <form onSubmit={handleSubmit}>
                     <Stack gap={'2.5rem'} alignItems={'start'}>
                         <Stack gap={'1.25rem'}>
