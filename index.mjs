@@ -28,7 +28,7 @@ export const handler = async (event) => {
           currency: "usd",
           product_data: {
             name: item.productName,
-            description: item.description, // optional
+            description: `Size: ${item.size} - ${item.description}`, // optional
             images: [item.imageUrl] // optional
           },
           unit_amount: Math.round(item.price * 100), // Stripe expects cents
@@ -91,8 +91,8 @@ export const handler = async (event) => {
             },
             display_name: `${rate.carrier} ${rate.service}`,
             delivery_estimate: {
-              minimum: { unit: "business_day", value: 2 },
-              maximum: { unit: "business_day", value: 5 },
+              minimum: { unit: "business_day", value: 2 + 10 }, // 2 days for shipping + 10 days for processing
+              maximum: { unit: "business_day", value: 5 + 10 }, // 5 days for shipping + 10 days for processing
             },
           },
         },
