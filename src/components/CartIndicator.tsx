@@ -14,8 +14,6 @@ type CartIndicatorProps = {
 
 export function CartIndicator({ count, price, showPrice }: CartIndicatorProps) {
   const navigate = useNavigate();
-  const badgeBackgroundColor = useColorModeValue('#e5e4ff', '#252264ff');
-  const badgeColor = useColorModeValue('#7068ff', '#dedcfbff');
   return (
     <>
       <IconButton
@@ -27,8 +25,8 @@ export function CartIndicator({ count, price, showPrice }: CartIndicatorProps) {
         <PiShoppingCartSimpleDuotone />
       </IconButton>
       {count > 0 && (
-        <Badge backgroundColor={badgeBackgroundColor}
-          color={badgeColor}
+        <Badge backgroundColor={'myBadgeBackgroundColor'}
+          color={'myBadgeColor'}
           position="absolute"
           top="0"
           right="0"

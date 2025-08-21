@@ -8,7 +8,7 @@ class CartService {
   subscribe(listener: () => void) {
     this.listeners.push(listener);
   }
-  
+
   notify() {
     this.listeners.forEach(fn => fn());
   }
@@ -39,18 +39,29 @@ class CartService {
       this.items.delete(key);
     }
     saveCartToIndexedDB(this.getItems());
+    this.notify();
   }
 
   // Remove all items by productId
   removeItemAll(productId: string): void {
-    this.items.delete(productId);
+    console.log('Removing all items with productId', productId);
+    console.log('Itmes', this.items);
+    for (const key of this.items.keys()) {
+      console.log(`Checking in key "${key}" includes "id:${productId};"`);
+      if (key.includes(`id:${productId};`)) {
+        console.log(`Key "${key}" includes "id:${productId};". Hence, deleting item`);
+        this.items.delete(key);
+      }
+    }
     saveCartToIndexedDB(this.getItems());
+    this.notify();
   }
 
   // Empty cart
   empty(): void {
     this.items.clear();
     saveCartToIndexedDB(this.getItems());
+    this.notify();
   }
 
   // Get total price
@@ -86,7 +97,7 @@ class CartService {
     });
     return count;
   }
-  
+
   // Get item quantity by product ID and size
   getQuantity(productId: string, size: number): number {
     const key = `id:${productId};size:${size}`;

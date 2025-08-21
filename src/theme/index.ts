@@ -60,6 +60,24 @@ const config = defineConfig({
             _dark: '{colors.red.300}',
           }
         },
+        myLegendColor: {
+          value: {
+            _light: "#82827c",
+            _dark: "#7c7b74",
+          }
+        },
+        myBadgeBackgroundColor: {
+          value: {
+            _light: "#e5e4ff",
+            _dark: "#252264ff",
+          }
+        },
+        myBadgeColor: {
+          value: {
+            _light: "#7068ff",
+            _dark: "#dedcfbff",
+          }
+        }
       },
     },
   },

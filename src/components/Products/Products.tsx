@@ -22,7 +22,7 @@ const Products: React.FC = () => {
         templateColumns={{base: "repeat(1, 1fr)", sm: 'repeat(2, 1fr)', md: "repeat(4, 1fr)", lg: 'repeat(5, 1fr)' }}
         paddingBlock={'4rem'}
       >
-        {products.filter(x=>/*x.productId='1'*/true).map((product: Product) => (
+        {products.filter(x => /*x.productId='1'*/true).map((product: Product) => (
           <GridItem 
             key={product.productId} 
             rowSpan={1} 

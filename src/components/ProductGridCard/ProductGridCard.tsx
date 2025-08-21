@@ -52,9 +52,6 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
         };
     }, [productId]);
 
-    const badgeBackgroundColor = useColorModeValue('#e5e4ff', '#252264ff');
-    const badgeColor = useColorModeValue('#7068ff', '#dedcfbff');
-
     return (
         <Box display={'flex'}
             flexDirection={'column'}
@@ -81,8 +78,8 @@ const ProductGridCard: React.FC<ProductCardProps & BoxProps & StackProps> = ({
             </Flex>
             {quantity > 0 && (
                 <Badge
-                    backgroundColor={badgeBackgroundColor}
-                    color={badgeColor}
+                    backgroundColor={'myBadgeBackgroundColor'}
+                    color={'myBadgeColor'}
                     position="absolute"
                     zIndex={2}
                     right="0.5rem"
