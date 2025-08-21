@@ -5,12 +5,10 @@ import { MdLocalShipping } from "react-icons/md";
 import { PiShippingContainerFill } from "react-icons/pi";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { IoMdCreate } from "react-icons/io";
-import { MdOutlineMailLock } from "react-icons/md";
-import { MdMoreTime } from "react-icons/md";
 import { MdTrackChanges } from "react-icons/md";
-import { WiStars } from "react-icons/wi";
 import { RiMailLockFill } from "react-icons/ri";
 import { BiSolidTimeFive } from "react-icons/bi";
+import { BsStars } from "react-icons/bs";
 
 export const questions: FrequentAskedQuestion[] = [
   {
@@ -88,7 +86,7 @@ export const questions: FrequentAskedQuestion[] = [
     answer:
     "They glow. They’re crafted by hand. And they’re made to feel personal. Every ring carries a story — yours.",
     isActive: true,
-    icon: <WiStars />
+    icon: <BsStars />
   },
 ];
 
