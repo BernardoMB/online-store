@@ -1,3 +1,4 @@
+import type { CheckoutCardItem } from "@/model/CheckoutModel";
 import type { CartItem } from "../model/CartModel";
 import { saveCartToIndexedDB } from "./DatabaseService";
 
@@ -106,3 +107,18 @@ class CartService {
 }
 
 export const cartService = new CartService();
+
+export function groupByIdWithSizes(items: CartItem[]): CheckoutCardItem[] {
+  //console.log('Grouping items by productId and sizes', items);
+  const grouped: any = {};
+  for (const item of items) {
+    if (!grouped[item.productId]) {
+      // Product is not there
+      grouped[item.productId] = { product: item, sizes: Array(item.quantity).fill(item.size) };
+    } else {
+      // Product is already there
+      grouped[item.productId].sizes.push(...Array(item.quantity).fill(item.size));
+    }
+  }
+  return Object.values(grouped);
+}

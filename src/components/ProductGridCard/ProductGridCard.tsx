@@ -1,5 +1,5 @@
 import { ringSizes, type ProductCardProps } from "@/model/ProductModel";
-import { Box, Stack, Text, Button, type BoxProps, type StackProps, createListCollection, Select, Portal, Spacer, Badge, Flex, Icon } from "@chakra-ui/react";
+import { Box, Stack, Text, Button, type BoxProps, type StackProps, Select, Portal, Badge, Flex, Icon } from "@chakra-ui/react";
 import "swiper/css"
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -7,7 +7,6 @@ import ProductGridCardSwiper from "./ProductGridCardSwiper";
 import { useEffect, useState } from "react";
 import { cartService } from "@/services/CartService";
 import { PiShoppingCartSimpleDuotone } from "react-icons/pi";
-import { useColorModeValue } from "../ui/color-mode";
 import { useNavigate } from "react-router-dom";
 import { IoMdStar } from "react-icons/io";
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { cartService } from "../../services/CartService";
+import { cartService, groupByIdWithSizes } from "../../services/CartService";
 import "./Checkout.css";
 import type { CartItem } from "../../model/CartModel";
 import { Box, Button, Flex, Grid, Input, Link, Stack, Text, useToken } from "@chakra-ui/react";
@@ -16,21 +16,6 @@ function toTitleCase(str: string) {
     .split(' ')
     .map(word => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-}
-
-function groupByIdWithSizes(items: CartItem[]): CheckoutCardItem[] {
-  //console.log('Grouping items by productId and sizes', items);
-  const grouped: any = {};
-  for (const item of items) {
-    if (!grouped[item.productId]) {
-      // Product is not there
-      grouped[item.productId] = { product: item, sizes: Array(item.quantity).fill(item.size) };
-    } else {
-      // Product is already there
-      grouped[item.productId].sizes.push(...Array(item.quantity).fill(item.size));
-    }
-  }
-  return Object.values(grouped);
 }
 
 const Checkout: React.FC = () => {
