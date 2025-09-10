@@ -212,7 +212,7 @@ const Contact: React.FC = () => {
                                 </Link>. You can unsubscribe at any time.
                             </Text>
                         </Stack>
-                        <Button type="submit" colorScheme="teal" borderRadius={'0.125rem'} backgroundColor={'myAccentColor'} color={'white'} flexShrink={0}>Request</Button>
+                        <Button type="submit" colorScheme="teal" borderRadius={'0.125rem'} backgroundColor={'myAccentColor'} color={'white'} flexShrink={0}>Send Message</Button>
                     </Stack>
                 </form>
             </Box>

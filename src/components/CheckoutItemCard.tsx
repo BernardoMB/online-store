@@ -64,6 +64,7 @@ const CheckoutItemCard: React.FC<CheckoutItemCardProps> = ({ card, onRemove, onR
                                             backgroundColor={'myBadgeBackgroundColor'}
                                             color={'myBadgeColor'}
                                             onClick={(e) => handleRemoveFromCartOnce(e, size)}
+                                            _hover={{ cursor: 'pointer', opacity: 0.8 }}
                                         >
                                             {size}
                                             <IoTrashOutline />
