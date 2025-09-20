@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Center } from "@chakra-ui/react";
 import Reviews from "./Reviews/Reviews";
 import Welcome from "./Welcome/Welcome";
@@ -10,8 +10,38 @@ import HomePageSection from "./HomePageSection/HomePageSection";
 import Contact from "./Contact/Contact";
 import Crystals from "./Crystals/Crystals";
 import ClosedSection from "./ClosedSection";
+import { useLocation } from "react-router-dom";
 
 const Home: React.FC = () => {
+    //#region Hash navigation
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+            const element = document.querySelector(hash);
+            if (element) {
+                // First scroll into view
+                element.scrollIntoView({ behavior: 'smooth' });
+
+                // Then adjust for sticky header after a short delay
+                setTimeout(() => {
+                    const headerHeight = (document.querySelector('#appHeader') as HTMLElement)?.offsetHeight || 0;
+                    let offset = headerHeight + 96; // Adjust to match your header height
+                    offset = 94;
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const offsetPosition = window.pageYOffset + elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth',
+                    });
+                }, 300); // Delay to allow scrollIntoView to complete
+            }
+        }
+    }, [hash]);
+
+    //#endregion
+
     return (
         <>
             <HomePageSection>
@@ -24,11 +54,17 @@ const Home: React.FC = () => {
                 </Center>
             </ClosedSection>
             <Divider />
-            <InfiniteCarousel></InfiniteCarousel>
+            <section id="featured">
+                <InfiniteCarousel></InfiniteCarousel>
+            </section>
             <Divider />
-            <IngredientsSection></IngredientsSection>
+            <section id="ingredients">
+                <IngredientsSection></IngredientsSection>
+            </section>
             <Divider />
-            <Crystals></Crystals>
+            <section id="crystals">
+                <Crystals></Crystals>
+            </section>
             <Divider />
             <ClosedSection>
                 <Center>
@@ -36,17 +72,23 @@ const Home: React.FC = () => {
                 </Center>
             </ClosedSection>
             <Divider />
-            <HomePageSection>
-                <Reviews />
-            </HomePageSection>
+            <section id="testimonials">
+                <HomePageSection>
+                    <Reviews />
+                </HomePageSection>
+            </section>
             <Divider />
-            <ClosedSection background='unset' p='0'>
-                <FAQs />
-            </ClosedSection>
+            <section id="faq">
+                <ClosedSection background='unset' p='0'>
+                    <FAQs />
+                </ClosedSection>
+            </section>
             <Divider />
-            <HomePageSection>
-                <Contact />
-            </HomePageSection>
+            <section id="contact">
+                <HomePageSection>
+                    <Contact />
+                </HomePageSection>
+            </section>
         </>
     );
 };

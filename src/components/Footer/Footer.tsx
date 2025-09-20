@@ -1,16 +1,16 @@
-import { useState } from 'react';
 import './Footer.css'
-import TermsAndConditionsModal from '../TermsAndConditionsModal/TermsAndConditionsModal';
-import StoreIcon from '../StoreIcon';
-import { Center, Container } from '@chakra-ui/react';
-import { Box, Flex, Text, Link, Stack, IconButton, Image } from "@chakra-ui/react";
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { Container } from '@chakra-ui/react';
+import { Box, Flex, Text, Link, Stack } from "@chakra-ui/react";
+import { FaInstagram } from "react-icons/fa";
 import Divider from '../Divider';
 import { StoreLogo } from '../StoreLogo';
 import { useColorModeValue } from '../ui/color-mode';
+import { FaLocationDot } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
+import { FaPhone } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 
 const Footer: React.FC = () => {
-  const [isTermsAndConditionsOpen, setIsTemrsAndConditionsOpen] = useState(false);
   const logoColor = useColorModeValue('black', 'white');
   const bottomFontColor = useColorModeValue('#5D5D58', '#c0beb9');
   const linkHoverColor = useColorModeValue('black', 'white');
@@ -40,72 +40,100 @@ const Footer: React.FC = () => {
                 </Text>
               </Stack>
               {/* Social Icons */}
-              <Flex gap={2}>
-                <button>Icon button</button>
-                <button>Icon button</button>
+              <Flex gap={4} fontSize={30}>
+                {/* TODO: Create business pages */}
+                <FaInstagram />
+                <FaFacebook />
               </Flex>
             </Stack>
             {/* Right Columns */}
             <Flex gap={{ base: 8, md: '3rem' }} wrap="wrap">
               <Stack gap={'2rem'}>
                 <Stack>
-                  <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Product</Text>
+                  <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Glow Rings</Text>
                   <Stack gap={'0.625rem'}>
-                    <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                      color={bottomFontColor}>Wallet & Smartcard</Link>
-                    <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                      color={bottomFontColor}>Dashboard & Integration</Link>
+                    <Link href="/products" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                      color={bottomFontColor}>Products</Link>
+                    {/* TODO: Add other products support */}
+                    {/* <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                      color={bottomFontColor}>Other Products</Link> */}
                   </Stack>
                 </Stack>
                 <Stack>
-                  <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Benefits</Text>
+                  <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Help</Text>
                   <Stack gap={'0.625rem'}>
-                    <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                      color={bottomFontColor}>Brands</Link>
-                    <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                      color={bottomFontColor}>Regions</Link>
+                    {/* TODO: Create shipping info page */}
+                    <Link href="/home#faq" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                      color={bottomFontColor}>Shipping</Link>
+                    <Link href="/home#contact" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                      color={bottomFontColor}>Get help</Link>
                   </Stack>
                 </Stack>
               </Stack>
               <Stack gap={2}>
-                <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Solutions</Text>
+                <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Info</Text>
                 <Stack gap={'0.625rem'}>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Startups</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Consulting</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Technology</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Manufacturing</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Healthcare</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Public Sector</Link>
+                  <Link href="/home#featured" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Featured Products</Link>
+                  <Link href="/home#ingredients" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>How they're made</Link>
+                  <Link href="/home#crystals" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Healing</Link>
+                  <Link href="/home#testimonials" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Testimonials</Link>
+                  <Link href="/home#faq" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>FAQs</Link>
+                  <Link href="/home#contact" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Contact</Link>
                 </Stack>
               </Stack>
               <Stack gap={2}>
-                <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Resources</Text>
+                <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Site</Text>
                 <Stack gap={'0.625rem'}>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Blog</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Glossary</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Tax Advantages</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>About HelloBonnie</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>Referral program</Link>
+                  <Link href="/home" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Home</Link>
+                  <Link href="/products" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Products</Link>
+                  <Link href="/about" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>About</Link>
+                  <Link href="/checkout" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Checkout</Link>
+                  {/* <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                    color={bottomFontColor}>Referral program</Link> */}
                 </Stack>
               </Stack>
               <Stack gap={2}>
-                <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Help</Text>
+                <Text color="fg.subtle" fontSize={'sm'} lineHeight={'1.25rem'}>Contact</Text>
                 <Stack gap={'0.625rem'}>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>For Employees</Link>
-                  <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
-                    color={bottomFontColor}>For Companies</Link>
+                  <Link href="/home#contact" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }} border={1} borderRadius={20} paddingBlock={1} paddingInline={2} borderColor={'myAppGlobalBorderColor'} borderStyle={'solid'}
+                    color={bottomFontColor}>
+                    Send us a message
+                  </Link>
+                  <Stack direction={'row'} gap={1} alignItems="baseline">
+                    <FaLocationDot />
+                    <Stack>
+                      <Text>716 Fishburn Rd.</Text>
+                      <Text>Hershey, PA 17033</Text>
+                    </Stack>
+                  </Stack>
+                  <Stack direction={'row'} gap={1} alignItems="center ">
+                    <MdEmail />
+                    <Stack>
+                      <Link
+                        href="mailto:bmondragonbrozon@gmail.com"
+                        _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+                        color={bottomFontColor}
+                      >
+                        <Text>bmondragonbrozon@gmail.com</Text>
+                      </Link>
+                    </Stack>
+                  </Stack>
+                  <Stack direction={'row'} gap={1} alignItems="center ">
+                    <FaPhone />
+                    <Stack>
+                      <Text>(571) 626-1227</Text>
+                    </Stack>
+                  </Stack>
                 </Stack>
               </Stack>
             </Flex>

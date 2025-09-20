@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({
   const accentColor = useColorModeValue('accent', 'accent');
 
   return (
-    <Box>
+    <Box id="appHeader">
       {/* App Header */}
       <Box as="header" 
         borderBottomWidth={'1px'} 
