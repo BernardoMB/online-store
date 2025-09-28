@@ -156,7 +156,7 @@ const Footer: React.FC = () => {
             <Flex gap={4}>
               <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
                 color={bottomFontColor}>Legal Disclosure</Link>
-              <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
+              <Link href="/privacy-policy" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
                 color={bottomFontColor}>Privacy Policy</Link>
               <Link href="#" _hover={{ color: linkHoverColor, cursor: 'pointer', textDecoration: 'none' }}
                 color={bottomFontColor}>Terms</Link>

@@ -45,7 +45,7 @@ const About: React.FC = () => {
             <HomePageSection>
                 <Grid gap={{ base: '2rem', md: '4rem' }} gridTemplateColumns={{ base: 'repeat(1, minmax(0, 1fr))', md: 'repeat(2, minmax(0px, 1fr))' }}>
                     <Stack gap={4}>
-                        <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} textTransform={'uppercase'} letterSpacing={'0.1em'} fontWeight="bold" color="myAccentColor" >About Us</Text>
+                        <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} textTransform={'uppercase'} letterSpacing={'0.1em'} fontWeight="medium" color="myAccentColor" >About Us</Text>
                         <Text fontSize={'1.875rem'} lineHeight={'2.375rem'} whiteSpace={'pre-line'} textWrap={'balance'} fontWeight={600}>Our mission — Craf glow rings that heal, mesmerize, and beautify.</Text>
                         <Text color={msgColor}>
                             Hue & Hoot began with a simple idea: that delightful design should feel personal, playful, and polished.

@@ -11,6 +11,7 @@ import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
 import ProductPage from "./components/Product/Product";
 import './App.css'; 
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 
 const App: React.FC = () => {
   const hasInitialized = useRef(false);
@@ -42,6 +43,7 @@ const App: React.FC = () => {
           <Route path="checkout" element={<Checkout />} />
           <Route path="success" element={<Success />} />
           <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </Router>

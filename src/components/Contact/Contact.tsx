@@ -207,7 +207,7 @@ const Contact: React.FC = () => {
                             />
                             <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} color={legendColor}>
                                 By submitting, you will receive a response from Hue & Hoot and agree to our{" "}
-                                <Link href="/en/legal/privacy-policy" color="myAccentColor" textDecoration="underline">
+                                <Link href="/privacy-policy" color="myAccentColor" textDecoration="underline">
                                     Privacy Policy
                                 </Link>. You can unsubscribe at any time.
                             </Text>
