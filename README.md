@@ -62,10 +62,10 @@ export default tseslint.config({
 ✅ Step-by-Step: View React App on Your Phone
 1. Start the Dev Server with Host Option
 ```bash
-npm run dev -- --host
-
-// or
-
+npm run debug
+```
+or
+```bash 
 npx vite --host
 ```
 This makes your app accessible over your local network.

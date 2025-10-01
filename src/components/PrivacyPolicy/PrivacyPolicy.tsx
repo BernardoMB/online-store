@@ -64,51 +64,73 @@ const PrivacyPolicy: React.FC = () => {
                     <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
                         SHARING YOUR PERSONAL INFORMATION
                     </Text>
-
-
-                    We share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we use Shopify to power our online store--you can read more about how Shopify uses your Personal Information here: https://www.shopify.com/legal/privacy. We also use Google Analytics to help us understand how our customers use the Site--you can read more about how Google uses your Personal Information here: https://www.google.com/intl/en/policies/privacy/. You can also opt-out of Google Analytics here: https://tools.google.com/dlpage/gaoptout.
-
-                    Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.
-
-                    BEHAVIORAL ADVERTISING
-                    As described above, we use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
-
-                    You can opt out of targeted advertising by:
-                    FACEBOOK - https://www.facebook.com/settings/?tab=ads
-                    GOOGLE - https://www.google.com/settings/ads/anonymous
-
-                    Additionally, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at: http://optout.aboutads.info/.
-
-                    DO NOT TRACK
-                    Please note that we do not alter our Site’s data collection and use practices when we see a Do Not Track signal from your browser.
-
-                    YOUR RIGHTS
-                    If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.
-
-                    Additionally, if you are a European resident we note that we are processing your information in order to fulfill contracts we might have with you (for example if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information will be transferred outside of Europe, including to Canada and the United States.
-
-                    DATA RETENTION
-                    When you place an order through the Site, we will maintain your Order Information for our records unless and until you ask us to delete this information.
-
-
-
-                    Third Party Pixels and Cookies Third Party Pixels and Cookies. Notwithstanding anything else in this policy, we and/or our partners may use pixels and pixel tags, and place, read or use cookies the collect information from your device and/or Internet browser. These cookies do not contain personally identifiable information, however, it may be possible for our third-party business partners to combine it with other information in order to identify your email address or other personally identifiable information about you. For example, the cookies may reflect de-identified demographic or other data linked to data you voluntarily have submitted to us, e.g., your email address, which we may share with a data provider solely in hashed, non-human readable form. By using our Service, you agree that us and our third-party partners may store, sell, port, combine with other data, monetize, utilize and otherwise use either (i) the personally indefinable information about you that we share with them, or (ii) the personally identifiable information they discover and/or identify as described above. Visitors can also express their choices for display advertising, through the following platforms: Digital Advertising Alliance opt-out platform or the Network Advertising Initiative opt-out platform. We and/or our partners may also use cookies for delivering personalized advertising emails. These cookies are used to identify the visitors of our advertisers’ websites and send personalized emails based on the visitors’ browsing experience. We and/or our partners use cookies, pixels and other tracking technology to associate certain Internet-related information about you, such as your Internet Protocol address and what Web browser you are using, with certain of your online behaviors, such as opening emails or browsing websites. Such information is used to customize ads or content and may be shared with our partners.
-
-
-                    CHANGES
-                    We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons.
-
-                    CONTACT US
-                    For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at Support@patrickadairdesigns.com or by mail using the details provided below:
-
-                    Patrick Adair Designs
-
-                    229 Harris Ave S
-                    Salt Lake City, Utah 84115
-
-                    This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from PatrickAdairDesigns.com (the “Site”).
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        We do not share your Personal Information with third parties to help us use your Personal Information, as described above. For example, we do not use any website or service to power our online store--you can read more about how websites like Shopify use your Personal Information here: https://www.shopify.com/legal/privacy. We do not use Google Analytics to help us understand how our customers use the Site--you can read more about how Google uses your Personal Information here: https://www.google.com/intl/en/policies/privacy/. If any website tracks your information using Google Analytics, you can also opt-out here: https://tools.google.com/dlpage/gaoptout.
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        Finally, we may also share your Personal Information to comply with applicable laws and regulations, to respond to a subpoena, search warrant or other lawful request for information we receive, or to otherwise protect our rights.
+                    </Text>
+                    <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
+                        BEHAVIORAL ADVERTISING
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        As described above, we do not use your Personal Information to provide you with targeted advertisements or marketing communications we believe may be of interest to you. For more information about how targeted advertising works, you can visit the Network Advertising Initiative’s (“NAI”) educational page at http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work.
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        You can opt out of targeted advertising by:
+                        FACEBOOK - https://www.facebook.com/settings/?tab=ads
+                        GOOGLE - https://www.google.com/settings/ads/anonymous
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        Even though you wont need to, you can opt out of some of these services by visiting the Digital Advertising Alliance’s opt-out portal at: http://optout.aboutads.info/.
+                    </Text>
+                    <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
+                        DO NOT TRACK
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        Please note that we do not alter our Site’s data collection and use practices when we see a Do Not Track signal from your browser.
+                    </Text>
+                    <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
+                        YOUR RIGHTS
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        If you are a European resident, you have the right to access personal information we hold about you and to ask that your personal information be corrected, updated, or deleted. If you would like to exercise this right, please contact us through the contact information below.
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        Additionally, if you are a European resident we note that we are processing your information in order to fulfill contracts we might have with you (for example if you make an order through the Site), or otherwise to pursue our legitimate business interests listed above. Additionally, please note that your information will be transferred outside of Europe, including to Canada and the United States.
+                    </Text>
+                    <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
+                        DATA RETENTION
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        When you place an order through the Site, we will maintain your Order Information for our records unless and until you ask us to delete this information.
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        Third Party Pixels and Cookies Third Party Pixels and Cookies. Notwithstanding anything else in this policy, we and/or our partners may use pixels and pixel tags, and place, read or use cookies the collect information from your device and/or Internet browser. These cookies do not contain personally identifiable information, however, it may be possible for our third-party business partners to combine it with other information in order to identify your email address or other personally identifiable information about you. For example, the cookies may reflect de-identified demographic or other data linked to data you voluntarily have submitted to us, e.g., your email address, which we may share with a data provider solely in hashed, non-human readable form. By using our Service, you agree that us and our third-party partners may store, sell, port, combine with other data, monetize, utilize and otherwise use either (i) the personally indefinable information about you that we share with them, or (ii) the personally identifiable information they discover and/or identify as described above. Visitors can also express their choices for display advertising, through the following platforms: Digital Advertising Alliance opt-out platform or the Network Advertising Initiative opt-out platform. We and/or our partners may also use cookies for delivering personalized advertising emails. These cookies are used to identify the visitors of our advertisers’ websites and send personalized emails based on the visitors’ browsing experience. We and/or our partners use cookies, pixels and other tracking technology to associate certain Internet-related information about you, such as your Internet Protocol address and what Web browser you are using, with certain of your online behaviors, such as opening emails or browsing websites. Such information is used to customize ads or content and may be shared with our partners.
+                    </Text>
+                    <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
+                        CHANGES
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        We may update this privacy policy from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons.
+                    </Text>
+                    <Text as="h2" fontSize={'1.5rem'} lineHeight={'2rem'} fontWeight={600} marginBottom={'1rem'}>
+                        CONTACT US
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at bmondragonbrozon@gmail.com or by mail using the details provided below:
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        Bernardo Mondragon
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        716 Fishburn Rd.
+                        Hershey, PA 17033
+                    </Text>
+                    <Text as="p" color={msgColor} lineHeight={'1.75rem'} whiteSpace={'pre-line'} marginBottom={'1rem'}>
+                        This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from this “Site”.
+                    </Text>
                 </Box>
-
             </HomePageSection>
         </>
     );
