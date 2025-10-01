@@ -351,10 +351,13 @@ const Checkout: React.FC = () => {
                     </Box>
                   </FormControl>
                   <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} color={'myLegendColor'}>
-                    Shipping can take up to 15 days. Learn more on our FAQs section{" "}
+                    Shipping can take up to an estimate of 15 days. Learn more on our FAQs section{" "}
                     <Link href="/home" color="myAccentColor" textDecoration="underline">
                       here
-                    </Link>. You will receive a confirmation email with your order details and tracking information.
+                    </Link>. You will receive a confirmation email with your order details and tracking information. By purchasing from us, you agree to our{" "}
+                    <Link href="/terms-and-conditions" color="myAccentColor" textDecoration="underline">
+                      Terms and Conditions
+                    </Link>.
                   </Text>
                 </Stack>
                 <Button
