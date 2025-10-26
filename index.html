@@ -28,11 +28,21 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hue & Hoot</title>
+
+  <!-- Theme initialization script - prevents flash of wrong theme during SSR -->
+  <script>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.add(theme);
+      document.documentElement.style.colorScheme = theme;
+    })();
+  </script>
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
+  <div id="root"><!--app-html--></div>
+  <script type="module" src="/src/entry-client.tsx"></script>
 </body>
 
 </html>

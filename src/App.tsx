@@ -1,5 +1,5 @@
 import { Provider } from "./components/ui/provider";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./components/Home";
 import Products from "./components/Products/Products";
@@ -10,7 +10,7 @@ import { cartService } from "./services/CartService";
 import Checkout from "./components/Checkout/Checkout";
 import Success from "./components/Success/Success";
 import ProductPage from "./components/Product/Product";
-import './App.css'; 
+import './App.css';
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
 
@@ -18,6 +18,8 @@ const App: React.FC = () => {
   const hasInitialized = useRef(false);
 
   useEffect(() => {
+    // Only run on client side (not during SSR)
+    if (typeof window === 'undefined') return;
     if (hasInitialized.current) return;
     hasInitialized.current = true;
 
@@ -31,24 +33,22 @@ const App: React.FC = () => {
       })
       .catch(err => console.error("Cart load error:", err));
   }, []);
-  
+
   return <Provider>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* <Route index element={<Home />} /> */}
-          <Route index element={<Navigate to="/home" replace />} />
-          <Route path="home" element={<Home />} />
-          <Route path="products" element={<Products />} />
-          <Route path="about" element={<About />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="success" element={<Success />} />
-          <Route path="/product/:productId" element={<ProductPage />} />
-          <Route path="privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="terms-and-conditions" element={<TermsAndConditions />} />
-        </Route>
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* <Route index element={<Home />} /> */}
+        <Route index element={<Navigate to="/home" replace />} />
+        <Route path="home" element={<Home />} />
+        <Route path="products" element={<Products />} />
+        <Route path="about" element={<About />} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="success" element={<Success />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+      </Route>
+    </Routes>
   </Provider>;
 }
 

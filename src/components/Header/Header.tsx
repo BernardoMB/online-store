@@ -61,13 +61,15 @@ const Header: React.FC<HeaderProps> = ({
                 &emsp;
               </div>
               <AbsoluteCenter marginLeft={{ base: '-28px', sm: '0px' }}>
-                <div className="header-section center">
-                  <StoreLogo color={logoColor} width="35" height="46" style={{ marginTop: "-5px" }} />
-                  &ensp;
-                  <Box whiteSpace="nowrap">
-                    <Text textStyle="xl">Hue & Hoot</Text>
-                  </Box>
-                </div>
+                <NavLink to="/home" style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <div className="header-section center" style={{ cursor: 'pointer' }}>
+                    <StoreLogo color={logoColor} width="35" height="46" style={{ marginTop: "-5px" }} />
+                    &ensp;
+                    <Box whiteSpace="nowrap">
+                      <Text textStyle="xl">Hue & Hoot</Text>
+                    </Box>
+                  </div>
+                </NavLink>
               </AbsoluteCenter>
               {/* <button onClick={toggleHeader} style={{ marginLeft: "1rem" }}>
               {expanded ? "Collapse Header" : "Expand Header"}
