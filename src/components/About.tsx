@@ -61,7 +61,10 @@ const About: React.FC = () => {
                             Inspired by my lifelong fascination with owls—symbols of wisdom, mystery, and quiet strength—Hue and Hoot reflects a blend of radiant color and soulful design. Every item in the shop is made in-house, crafted slowly and deliberately, with an eye for detail and a touch of enchantment.
                         </Text>
                         <Text as="p">
-                            This is just the beginning. New designs and features are on the horizon, each one carrying a bit more light, a bit more story. Thank you for being part of this journey.
+                            This is just the beginning. New designs and features are on the horizon, each one carrying a bit more light, a bit more story.
+                        </Text>
+                        <Text as="p">
+                            These efforts are dedicated to my fiance Kiki and her children, Dustyn and Jaylin. They are my life and I thank them for being part of this journey.
                         </Text>
                     </Stack>
                 </Grid>
@@ -73,7 +76,7 @@ const About: React.FC = () => {
                         <Text fontSize={'0.875rem'} lineHeight={'1.25rem'} textTransform={'uppercase'} letterSpacing={'0.1em'} fontWeight="bold" color="myAccentColor" >Our Team</Text>
                         <Text fontSize={'1.875rem'} lineHeight={'2.375rem'} whiteSpace={'pre-line'} textWrap={'balance'} fontWeight={600}>Meet The One Man Army</Text>
                         <Text color={msgColor}>
-                            From the first sketch and a "Hello World!", to the final polish and executive decisions, every piece is a labor of love, crafted by me, Bernardo Mondragon. I pour my heart into each design, ensuring that every ring is not just a product, but a story waiting to be worn.
+                            From the first stone and a "Hello World!", to the final polish and executive decisions, every piece is a labor of love, crafted by me, Bernardo Mondragon. I pour my heart into each design, ensuring that every ring is not just a product, but a story waiting to be worn.
                         </Text>
                     </Stack>
                     <Grid gap={4}>

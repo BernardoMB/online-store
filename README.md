@@ -105,3 +105,7 @@ Review commits for setup since several workarounds had to be implemented
 This application's back-end consists of two AWS Lambda functions:
 1. Send message from Contact form (.NET 9)
 2. Create Stripe checkout session (Node JS)
+
+# Publish
+
+This application is currently being hosted in Vercel.
