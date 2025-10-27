@@ -1,41 +1,8 @@
 import React from "react";
 import HomePageSection from "./HomePageSection/HomePageSection";
-import { Grid, Stack, Text, Image, Box, Card, Link, AspectRatio } from "@chakra-ui/react";
+import { Grid, Stack, Text, Image, Box, Link, AspectRatio } from "@chakra-ui/react";
 import { useColorModeValue } from "./ui/color-mode";
 import Divider from "./Divider";
-
-const teamMembers = [
-    {
-        name: "Maximilian Roskosch",
-        role: "Co-Founder & CEO",
-        image:
-            "https://cms.hellobonnie.de/api/avatars/file/max-356x356.webp",
-    },
-    {
-        name: "Niklas Klein",
-        role: "Co-Founder & CPO",
-        image:
-            "https://cms.hellobonnie.de/api/avatars/file/niklas-356x356.jpg",
-    },
-    {
-        name: "Christian Schröter",
-        role: "Principal Software Engineer",
-        image:
-            "https://cms.hellobonnie.de/api/avatars/file/Profilbild-356x356.jpg",
-    },
-    {
-        name: "Zora Wolbert",
-        role: "Working Student",
-        image:
-            "https://cms.hellobonnie.de/api/avatars/file/zora-356x356.webp",
-    },
-    {
-        name: "Amarachi Ugochukwu",
-        role: "Working Student",
-        image:
-            "https://cms.hellobonnie.de/api/avatars/file/amara-356x356.webp",
-    },
-];
 
 const About: React.FC = () => {
     const msgColor = useColorModeValue('gray.700', '#c0beb9');
