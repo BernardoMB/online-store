@@ -3,9 +3,9 @@ import type { Product } from "../model/ProductModel";
 const products: Product[] = [
   {
     productId: "1",
-    productName: "Wireless Mouse",
-    description: "Ergonomic and precise, with Bluetooth support.",
-    price: 30,
+    productName: "Orange Ring",
+    description: "Aluminum ring with orange glow stone and quartz inlays.",
+    price: 45,
     images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
     isActive: true,
     featured: true,
@@ -13,20 +13,28 @@ const products: Product[] = [
   },
   {
     productId: "2",
-    productName: "Mechanical Keyboard",
-    description: "Backlit keys, satisfying switches.",
-    price: 80,
-    images: ["/images/orange-ring-1.jpg"],
+    productName: "Green Glow Stone",
+    description: "Aluminum ring with green glow stone and quartz inlays.",
+    price: 45,
+    images: [
+      "/images/products/green-aluminum/1.jpg", 
+      "/images/products/green-aluminum/2.jpg", 
+      "/images/products/green-aluminum/3.png"
+    ],
     isActive: true,
     featured: false,
-    rating: 3.9
+    rating: 4.7
   },
   {
     productId: "3",
-    productName: "Noise-Canceling Headphones",
-    description: "Immersive sound and silence.",
-    price: 90,
-    images: ["/images/orange-ring-1.jpg", "/images/orange-ring-1.jpg"],
+    productName: "Green Glow Stone",
+    description: "Black coated aluminum ring with green glow stone and quartz inlays.",
+    price: 45,
+    images: [
+      "/images/products/green-black-coated-aluminum/1.png", 
+      "/images/products/green-black-coated-aluminum/2.png", 
+      "/images/products/green-black-coated-aluminum/3.png"
+    ],
     isActive: true,
     featured: false,
     rating: 4.8
