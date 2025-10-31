@@ -6,6 +6,7 @@ import express from 'express'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isProduction = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 5173
+const host = process.env.HOST || 'localhost'
 const base = process.env.BASE || '/'
 
 // Cached production assets
@@ -24,7 +25,10 @@ let vite
 if (!isProduction) {
   const { createServer } = await import('vite')
   vite = await createServer({
-    server: { middlewareMode: true },
+    server: {
+      middlewareMode: true,
+      host: host
+    },
     appType: 'custom',
     base
   })
@@ -68,6 +72,6 @@ app.use('*', async (req, res) => {
 })
 
 // Start http server
-app.listen(port, () => {
-  console.log(`Server started at http://localhost:${port}`)
+app.listen(port, host, () => {
+  console.log(`Server started at http://${host}:${port}`)
 })

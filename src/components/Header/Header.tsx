@@ -5,6 +5,7 @@ import './Header.css';
 import { CartIndicator } from "../CartIndicator";
 import { StoreLogo } from "../StoreLogo";
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 type HeaderProps = {
   expanded: boolean;
@@ -20,9 +21,25 @@ const Header: React.FC<HeaderProps> = ({
   isSidebarOpen,
 }) => {
   const { price, count } = useCartTotals();
-  const backgroundColor = useColorModeValue('white', '#222221');
-  const logoColor = useColorModeValue('black', 'white');
   const { colorMode } = useColorMode();
+  const [mounted, setMounted] = useState(false);
+
+  // Prevent hydration mismatch by detecting initial theme from HTML element
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Detect initial theme from document on first render to prevent white flash
+  const getInitialTheme = () => {
+    if (typeof document !== 'undefined') {
+      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    }
+    return 'light';
+  };
+
+  const effectiveColorMode = mounted ? colorMode : getInitialTheme();
+  const backgroundColor = effectiveColorMode === 'dark' ? '#222221' : 'white';
+  const logoColor = effectiveColorMode === 'dark' ? 'white' : 'black';
   const accentColor = useColorModeValue('accent', 'accent');
 
   return (
@@ -43,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({
             paddingInline={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
             backgroundColor={backgroundColor}
           >
-            <Box
+            {/* <Box
               position={'absolute'}
               width={{ base: 'calc(100% - 1rem)', sm: 'calc(100% - 2rem)', md: 'calc(100% - 3rem)', lg: 'calc(100% - 4rem)' }}
               height={'3px'}
@@ -52,7 +69,7 @@ const Header: React.FC<HeaderProps> = ({
               left={{ base: '0.5rem', sm: '1rem', md: '1.5rem', lg: '2rem' }}
               backgroundColor={'myAppGlobalBorderColor'}
             >
-            </Box>
+            </Box> */}
             <div className="header-container">
               <div className="header-section left">
                 <Button variant="ghost" onClick={toggleSidebar} display={{ base: 'block', md: 'none' }} paddingInline={{ base: '0.5rem', sm: '1rem' }}>

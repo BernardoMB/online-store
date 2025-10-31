@@ -81,7 +81,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isVisible, setIsVisible }) => {
                 _hover={{ textDecoration: 'underline' }}
                 background={isActive ? colorMode === 'light' ? 'rgba(0, 0, 0, 0.1)' : 'rgba(255, 255, 255, 0.1);' : 'unset'}
               >
-                <Icon as={link.icon} boxSize={5} />
+                <Icon as={link.icon} boxSize={5} marginRight={'0.5rem'}/>
                 <Text fontWeight="medium" color={'myAppTextColor'}>{link.label}</Text>
                 {isActive && (
                   <Box
