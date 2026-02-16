@@ -7,7 +7,7 @@ import { LuMoon, LuSun } from "react-icons/lu"
 
 // Review documentation on Color Mode: https://www.chakra-ui.com/docs/components/concepts/color-mode
 
-export interface ColorModeProviderProps extends ThemeProviderProps {}
+export interface ColorModeProviderProps extends ThemeProviderProps { }
 
 export function ColorModeProvider(props: ColorModeProviderProps) {
   return (
@@ -15,7 +15,7 @@ export function ColorModeProvider(props: ColorModeProviderProps) {
       attribute="class"
       disableTransitionOnChange
       enableSystem={true}
-      defaultTheme="system"
+      defaultTheme="light"
       storageKey="theme"
       {...props}
     />
@@ -61,7 +61,7 @@ export function ColorModeIcon() {
   return colorMode === "dark" ? <LuMoon /> : <LuSun />
 }
 
-interface ColorModeButtonProps extends Omit<IconButtonProps, "aria-label"> {}
+interface ColorModeButtonProps extends Omit<IconButtonProps, "aria-label"> { }
 
 /**
  * Ude this button to toggle the color mode.

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useColorModeValue } from './ui/color-mode';
 
 function ThemeColorMetaTag() {
-  const themeColor = useColorModeValue('pink', 'orange'); // adjust to match your theme
+  const themeColor = useColorModeValue('light', 'dark'); // adjust to match your theme
 
   useEffect(() => {
     let metaTag = document.querySelector('meta[name="theme-color"]');
