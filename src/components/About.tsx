@@ -63,9 +63,9 @@ const About: React.FC = () => {
                         <Text as="p">
                             This is just the beginning. New designs and features are on the horizon, each one carrying a bit more light, a bit more story.
                         </Text>
-                        <Text as="p">
+                        {/* <Text as="p">
                             These efforts are dedicated to my fiance Kiki and her children, Dustyn and Jaylin. They are my life and I thank them for being part of this journey.
-                        </Text>
+                        </Text> */}
                     </Stack>
                 </Grid>
             </HomePageSection>
