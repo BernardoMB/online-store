@@ -1,0 +1,23 @@
+.welcome-section {
+  padding: 0 2rem;
+}
+
+.welcome-section .welcome-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  position: relative;
+}
+
+.welcome-phrase {
+  font-weight: 700;
+  white-space: pre-line;
+  letter-spacing: -0.02rem;
+}
+
+.welcome-phrase-2 {
+  line-height: 1.875rem;
+  max-width: 48rem;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}

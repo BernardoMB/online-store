@@ -1,0 +1,55 @@
+import { Provider } from "./components/ui/provider";
+import { Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import Home from "./components/Home";
+import Products from "./components/Products/Products";
+import About from "./components/About";
+import { useEffect, useRef } from "react";
+import { loadCartFromIndexedDB } from "./services/DatabaseService";
+import { cartService } from "./services/CartService";
+import Checkout from "./components/Checkout/Checkout";
+import Success from "./components/Success/Success";
+import ProductPage from "./components/Product/Product";
+import './App.css';
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "./components/TermsAndConditions/TermsAndConditions";
+
+const App: React.FC = () => {
+  const hasInitialized = useRef(false);
+
+  useEffect(() => {
+    // Only run on client side (not during SSR)
+    if (typeof window === 'undefined') return;
+    if (hasInitialized.current) return;
+    hasInitialized.current = true;
+
+    loadCartFromIndexedDB()
+      .then(items => {
+        items.forEach(item => {
+          //alert('Adding item from IndexedDB: ' + item.productId);
+          cartService.addItem(item);
+        });
+        cartService.notify(); // Notify listeners after loading items
+      })
+      .catch(err => console.error("Cart load error:", err));
+  }, []);
+
+  return <Provider>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        {/* <Route index element={<Home />} /> */}
+        <Route index element={<Navigate to="/home" replace />} />
+        <Route path="home" element={<Home />} />
+        <Route path="products" element={<Products />} />
+        <Route path="about" element={<About />} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="success" element={<Success />} />
+        <Route path="/product/:productId" element={<ProductPage />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-and-conditions" element={<TermsAndConditions />} />
+      </Route>
+    </Routes>
+  </Provider>;
+}
+
+export default App;
