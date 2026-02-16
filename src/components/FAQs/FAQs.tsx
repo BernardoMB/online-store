@@ -23,9 +23,7 @@ const FAQs: React.FC = () => {
                 {faqs.map((question: FrequentAskedQuestionType, index) => (
                     <Accordion.Item key={question.id} value={question.id.toString()}>
                         <Accordion.ItemTrigger cursor={'pointer'}>
-                            <Icon fontSize="lg">
-                                {question.icon}
-                            </Icon>
+                            <Icon fontSize="lg" as={question.icon} />
                             <Box flex={'1'}>
                                 <Text as='h1'
                                     color={'myAppTextColor'}

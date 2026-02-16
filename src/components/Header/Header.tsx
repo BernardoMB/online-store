@@ -22,24 +22,8 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const { price, count } = useCartTotals();
   const { colorMode } = useColorMode();
-  const [mounted, setMounted] = useState(false);
-
-  // Prevent hydration mismatch by detecting initial theme from HTML element
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Detect initial theme from document on first render to prevent white flash
-  const getInitialTheme = () => {
-    if (typeof document !== 'undefined') {
-      return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-    }
-    return 'light';
-  };
-
-  const effectiveColorMode = mounted ? colorMode : getInitialTheme();
-  const backgroundColor = effectiveColorMode === 'dark' ? '#222221' : 'white';
-  const logoColor = effectiveColorMode === 'dark' ? 'white' : 'black';
+  const backgroundColor = useColorModeValue('#fafaf9', '#222221');
+  const logoColor = useColorModeValue('black', 'white');
   const accentColor = useColorModeValue('accent', 'accent');
 
   return (

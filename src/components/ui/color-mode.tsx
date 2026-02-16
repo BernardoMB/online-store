@@ -1,28 +1,108 @@
 import type { IconButtonProps, SpanProps } from "@chakra-ui/react"
 import { ClientOnly, IconButton, Skeleton, Span } from "@chakra-ui/react"
-import { ThemeProvider, useTheme } from "next-themes"
-import type { ThemeProviderProps } from "next-themes"
 import * as React from "react"
 import { LuMoon, LuSun } from "react-icons/lu"
 
-// Review documentation on Color Mode: https://www.chakra-ui.com/docs/components/concepts/color-mode
+// Custom theme provider compatible with Vite SSR - no hydration issues!
 
-export interface ColorModeProviderProps extends ThemeProviderProps { }
+const STORAGE_KEY = 'theme'
+const LIGHT = 'light'
+const DARK = 'dark'
 
-export function ColorModeProvider(props: ColorModeProviderProps) {
+export type ColorMode = typeof LIGHT | typeof DARK
+
+interface ThemeContextValue {
+  colorMode: ColorMode
+  setColorMode: (mode: ColorMode) => void
+  toggleColorMode: () => void
+}
+
+const ThemeContext = React.createContext<ThemeContextValue | undefined>(undefined)
+
+export interface ColorModeProviderProps {
+  children: React.ReactNode
+  defaultTheme?: ColorMode
+  enableSystem?: boolean
+  storageKey?: string
+}
+
+export function ColorModeProvider({
+  children,
+  defaultTheme = LIGHT,
+  enableSystem = true,
+  storageKey = STORAGE_KEY
+}: ColorModeProviderProps) {
+  // Always use defaultTheme for initial state (matches SSR)
+  // Update from localStorage/system after mount to avoid hydration mismatch
+  const [colorMode, setColorModeState] = React.useState<ColorMode>(defaultTheme)
+  const [mounted, setMounted] = React.useState(false)
+
+  // Load theme from localStorage after mount
+  React.useEffect(() => {
+    const stored = localStorage.getItem(storageKey) as ColorMode | null
+
+    if (stored && (stored === LIGHT || stored === DARK)) {
+      setColorModeState(stored)
+      updateDOM(stored)
+    } else if (enableSystem) {
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? DARK : LIGHT
+      setColorModeState(systemTheme)
+      updateDOM(systemTheme)
+    } else {
+      updateDOM(defaultTheme)
+    }
+
+    setMounted(true)
+  }, [defaultTheme, enableSystem, storageKey])
+
+  // Listen for system theme changes
+  React.useEffect(() => {
+    if (!enableSystem || !mounted) return
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const handleChange = (e: MediaQueryListEvent) => {
+      const stored = localStorage.getItem(storageKey)
+      // Only update if user hasn't explicitly set a preference
+      if (!stored) {
+        const newTheme = e.matches ? DARK : LIGHT
+        setColorModeState(newTheme)
+        updateDOM(newTheme)
+      }
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [enableSystem, mounted, storageKey])
+
+  const setColorMode = React.useCallback((mode: ColorMode) => {
+    setColorModeState(mode)
+    localStorage.setItem(storageKey, mode)
+    updateDOM(mode)
+  }, [storageKey])
+
+  const toggleColorMode = React.useCallback(() => {
+    setColorMode(colorMode === DARK ? LIGHT : DARK)
+  }, [colorMode, setColorMode])
+
+  const value = React.useMemo(() => ({
+    colorMode,
+    setColorMode,
+    toggleColorMode,
+  }), [colorMode, setColorMode, toggleColorMode])
+
   return (
-    <ThemeProvider
-      attribute="class"
-      disableTransitionOnChange
-      enableSystem={true}
-      defaultTheme="light"
-      storageKey="theme"
-      {...props}
-    />
+    <ThemeContext.Provider value={value}>
+      {children}
+    </ThemeContext.Provider>
   )
 }
 
-export type ColorMode = "light" | "dark"
+function updateDOM(theme: ColorMode) {
+  const root = document.documentElement
+  root.classList.remove(LIGHT, DARK)
+  root.classList.add(theme)
+  root.style.colorScheme = theme
+}
 
 export interface UseColorModeReturn {
   colorMode: ColorMode
@@ -35,16 +115,11 @@ export interface UseColorModeReturn {
  * Calling toggleColorMode or setColorMode anywhere in your app tree toggles the color mode from light or dark and vice versa.
  */
 export function useColorMode(): UseColorModeReturn {
-  const { resolvedTheme, setTheme, forcedTheme } = useTheme()
-  const colorMode = forcedTheme || resolvedTheme
-  const toggleColorMode = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark")
+  const context = React.useContext(ThemeContext)
+  if (!context) {
+    throw new Error('useColorMode must be used within a ColorModeProvider')
   }
-  return {
-    colorMode: colorMode as ColorMode,
-    setColorMode: setTheme,
-    toggleColorMode,
-  }
+  return context
 }
 
 /**
@@ -64,7 +139,7 @@ export function ColorModeIcon() {
 interface ColorModeButtonProps extends Omit<IconButtonProps, "aria-label"> { }
 
 /**
- * Ude this button to toggle the color mode.
+ * Use this button to toggle the color mode.
  * The color mode snippet comes with the ColorModeButton component built-in, you can import it to render an icon button that toggles the color mode.
  * It renders a skeleton on the server side and the icon on the client side.
  */

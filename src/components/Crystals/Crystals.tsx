@@ -1,4 +1,4 @@
-import { Bleed, Box, Container, Grid, GridItem, Icon, Stack, Text, Image } from "@chakra-ui/react";
+import { Bleed, Box, ClientOnly, Container, Grid, GridItem, Icon, Stack, Text, Image } from "@chakra-ui/react";
 import { GiCrystalBall } from "react-icons/gi";
 import { useColorModeValue } from "../ui/color-mode";
 import { GiCrystalShine } from "react-icons/gi";
@@ -33,16 +33,18 @@ const Crystals: React.FC = () => {
                                         overflow={'hidden'}
                                     >
                                         <Box>
-                                            <Marquee speed={20}>
-                                                <Image src="/images/crystals/1.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/2.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/3.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/4.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/5.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/6.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/7.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/8.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
-                                            </Marquee>
+                                            <ClientOnly>
+                                                <Marquee speed={20}>
+                                                    <Image src="/images/crystals/1.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/2.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/3.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/4.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/5.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/6.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/7.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/8.png" alt="" height={{ base: '80px', md: '120px ' }} style={{ marginRight: '40px' }} />
+                                                </Marquee>
+                                            </ClientOnly>
                                         </Box>
                                     </Container>
                                 </Bleed>
@@ -55,15 +57,17 @@ const Crystals: React.FC = () => {
                                         marginBottom={'2rem'}
                                     >
                                         <Box>
-                                            <Marquee direction="right" speed={20}>
-                                                <Image src="/images/crystals/9.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/10.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/11.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/12.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/13.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/14.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                                <Image src="/images/crystals/15.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
-                                            </Marquee>
+                                            <ClientOnly>
+                                                <Marquee direction="right" speed={20}>
+                                                    <Image src="/images/crystals/9.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/10.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/11.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/12.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/13.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/14.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                    <Image src="/images/crystals/15.png" alt="" height={{ base: '80px', md: '120px' }} style={{ marginRight: '40px' }} />
+                                                </Marquee>
+                                            </ClientOnly>
                                         </Box>
                                     </Container>
                                 </Bleed>
@@ -85,25 +89,19 @@ const Crystals: React.FC = () => {
                                 <Stack gap='2rem'>
                                     <Stack direction={'row'} gap={'1.25rem'} alignItems={'start'}>
                                         <Box borderWidth={'1px'} padding={'1rem'} backgroundColor={'myAppBackground2'}>
-                                            <Icon fontSize={'2rem'} color={iconColor}>
-                                                <GiCrystalBall />
-                                            </Icon>
+                                            <Icon fontSize={'2rem'} color={iconColor} as={GiCrystalBall} />
                                         </Box>
                                         <Text as='p' fontSize={{ base: '1rem', md: '1.125rem' }} lineHeight={{ base: '1.5rem', md: '1.75rem' }} whiteSpace={'pre-line'} color={'myAppTextColor'}>Healing crystals have been used for thousands of years. Ancient Egyptians adorned themselves with stones like lapis lazuli and turquoise, believing they could ward off illness and negative energy.</Text>
                                     </Stack>
                                     <Stack direction={'row'} gap={'1.25rem'} alignItems={'start'}>
                                         <Box borderWidth={'1px'} padding={'1rem'} backgroundColor={'myAppBackground2'}>
-                                            <Icon fontSize={'2rem'} color={iconColor}>
-                                                <GiCrystalShine />
-                                            </Icon>
+                                            <Icon fontSize={'2rem'} color={iconColor} as={GiCrystalShine} />
                                         </Box>
-                                        <Text as='p' fontSize={{ base: '1rem', md: '1.125rem' }} lineHeight={{ base: '1.5rem', md: '1.75rem' }} whiteSpace={'pre-line'} color={'myAppTextColor'}>Crystals interact with the body’s energy fields. Their unique vibrational frequencies can help unblock or redirect energy flow, promoting relaxation and clarity.</Text>
+                                        <Text as='p' fontSize={{ base: '1rem', md: '1.125rem' }} lineHeight={{ base: '1.5rem', md: '1.75rem' }} whiteSpace={'pre-line'} color={'myAppTextColor'}>Crystals interact with the body's energy fields. Their unique vibrational frequencies can help unblock or redirect energy flow, promoting relaxation and clarity.</Text>
                                     </Stack>
                                     <Stack direction={'row'} gap={'1.25rem'} alignItems={'start'}>
                                         <Box borderWidth={'1px'} padding={'1rem'} backgroundColor={'myAppBackground2'}>
-                                            <Icon fontSize={'2rem'} color={iconColor}>
-                                                <GiElectric />
-                                            </Icon>
+                                            <Icon fontSize={'2rem'} color={iconColor} as={GiElectric} />
                                         </Box>
                                         <Text as='p' fontSize={{ base: '1rem', md: '1.125rem' }} lineHeight={{ base: '1.5rem', md: '1.75rem' }} whiteSpace={'pre-line'} color={'myAppTextColor'}>The Curie brothers discovered the piezoelectric effect in 1880 — crystals like quartz can generate electricity when compressed. This principle is used in watches, microphones, and medical devices.</Text>
                                     </Stack>

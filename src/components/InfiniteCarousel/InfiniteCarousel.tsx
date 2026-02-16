@@ -1,4 +1,4 @@
-import { Box, Container, Flex, Grid, Stack, Text, VStack } from '@chakra-ui/react';
+import { Box, ClientOnly, Container, Flex, Grid, Stack, Text, VStack } from '@chakra-ui/react';
 import './InfiniteCarousel.css'
 import { useColorModeValue } from '../ui/color-mode';
 import Marquee from "react-fast-marquee";
@@ -35,7 +35,8 @@ const InfiniteCarousel: React.FC = () => {
                 >
                     <VStack gap={'1rem'}>
                         <Text as='h2' fontSize={'1.125rem'} lineHeight={'1.75rem'} fontWeight={500}>Featured Products</Text>
-                        <Marquee style={{ overflow: 'hidden' }} speed={20}>
+                        <ClientOnly>
+                            <Marquee style={{ overflow: 'hidden' }} speed={20}>
                             {/* <div className="slider">
                                 <div className="slide-track"> */}
                             {/* <div className="slide">
@@ -105,7 +106,8 @@ const InfiniteCarousel: React.FC = () => {
 
                             {/* </div>
                             </div> */}
-                        </Marquee>
+                            </Marquee>
+                        </ClientOnly>
                     </VStack>
                 </Container>
             </Container>

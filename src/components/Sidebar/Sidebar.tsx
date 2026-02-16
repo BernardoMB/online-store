@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 import { AbsoluteCenter, Bleed, Box, Center, Flex, HStack, Icon, Menu, Text } from "@chakra-ui/react";
-import { FcHome, FcShop, FcAbout, FcPaid } from "react-icons/fc";
 import { useColorMode, useColorModeValue } from "../ui/color-mode";
 import { StoreLogo } from "../StoreLogo";
 import Divider from "../Divider";

@@ -22,22 +22,12 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="yellow">
   <!-- The component ThemeColorMetaTag is also being used -->
   <!-- #endregion -->
-   
+
   <!-- Application font -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hue & Hoot</title>
-
-  <!-- Theme initialization script - prevents flash of wrong theme during SSR -->
-  <script>
-    (function() {
-      const stored = localStorage.getItem('theme');
-      const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.classList.add(theme);
-      document.documentElement.style.colorScheme = theme;
-    })();
-  </script>
 </head>
 
 <body>

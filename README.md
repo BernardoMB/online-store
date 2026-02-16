@@ -136,3 +136,13 @@ https://www.youtube.com/shorts/-e77bywsW-o
 
 Generate clean or better pictures with AI:
 https://ltx.studio
+
+# Kill process
+
+```bash
+netstat -ano | findstr :<port>
+```
+Then, kill the process with the PID obtained from the previous command:
+```bash
+taskkill /PID <PID> /F
+``` 
