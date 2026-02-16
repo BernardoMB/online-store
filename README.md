@@ -109,3 +109,11 @@ This application's back-end consists of two AWS Lambda functions:
 # Publish
 
 This application is currently being hosted in Vercel.
+
+# Resources
+
+How to warp pictures: 
+https://www.youtube.com/shorts/-e77bywsW-o
+
+Generate clean or better pictures with AI:
+https://ltx.studio

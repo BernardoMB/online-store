@@ -41,23 +41,30 @@ const products: Product[] = [
   },
   {
     productId: "4",
-    productName: "Bluetooth Speaker",
-    description: "Best quiality sound and portability.",
-    price: 90,
-    images: ["/images/orange-ring-1.jpg"],
+    productName: "Yellow Glows Stone",
+    description: "Aluminum ring with yellow glow stone and quartz inlays.",
+    price: 45,
+    images: [
+      "/images/products/yellow-glowstone/1.jpg", 
+      "/images/products/yellow-glowstone/2.jpg", 
+      "/images/products/yellow-glowstone/glowing.jpg"
+    ],
     isActive: true,
     featured: false,
     rating: 5
   },
   {
     productId: "5",
-    productName: "Orange Glow Stone Ring",
-    description: "Stainless Steel, Glow Powder, Obsidian, Red Jasper, Carnelian",
-    price: 50,
-    images: ["/images/orange-ring-1.jpg"],
+    productName: "Yellow Glows Stone",
+    description: "Black coated aluminum ring with yellow glow stone and quartz inlays.",
+    price: 45,
+    images: [
+      "/images/products/yellow-glowstone/3.jpg", 
+      "/images/products/yellow-glowstone/glowing.jpg"
+    ],
     isActive: true,
-    featured: true,
-    rating: 4.7
+    featured: false,
+    rating: 5
   }
 ];
 
